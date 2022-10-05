@@ -1,4 +1,4 @@
-package JavaAdvanced.src.functionalProgramming;
+package JavaAdvanced.src.functionalProgramming.lab;
 
 import java.util.Scanner;
 import java.util.function.Predicate;
