@@ -1,4 +1,4 @@
-package JavaAdvanced.src.examPreparationJavaAdvancedRetakeExam17Dec2019;
+package JavaAdvanced.src.examPreparation.javaAdvancedRetakeExam17Dec2019;
 
 import java.util.*;
 
