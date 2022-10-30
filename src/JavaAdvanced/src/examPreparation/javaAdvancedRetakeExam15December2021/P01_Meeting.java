@@ -33,33 +33,40 @@ public class P01_Meeting {
 
             if (firstValue <= 0) {
                 mensStack.pop();
-            } else if (secondValue <= 0) {
+                continue;
+            }
+            if (secondValue <= 0) {
                 womenQueue.poll();
-            } else if (firstValue == secondValue) {
-                matches++;
+                continue;
+            }
 
-                if (firstValue % 25 == 0) {
-                    mensStack.pop();
-                    mensStack.pop();
-                }
-                if (secondValue % 25 == 0) {
-                    womenQueue.poll();
-                    womenQueue.poll();
-                } else {
-                    mensStack.pop();
-                    womenQueue.poll();
-                }
+            if (firstValue % 25 == 0) {
+                mensStack.pop();
+                mensStack.pop();
+                continue;
+            }
+
+            if (secondValue % 25 == 0) {
+                womenQueue.poll();
+                womenQueue.poll();
+                continue;
+            }
+
+            if (firstValue == secondValue) {
+                matches++;
+                mensStack.pop();
+                womenQueue.poll();
+
             } else {
                 womenQueue.poll();
-                int newValue = firstValue - 2;
                 mensStack.pop();
+                int newValue = firstValue - 2;
                 mensStack.push(newValue);
-            }
-
-
-
 
             }
+
+
+        }
 
 
         System.out.printf("Matches: %d%n", matches);
@@ -68,7 +75,7 @@ public class P01_Meeting {
             System.out.println("Males left: none");
         } else {
             List<String> menLeft = new ArrayList<>();
-            while (!mensStack.isEmpty()){
+            while (!mensStack.isEmpty()) {
                 menLeft.add(String.valueOf(mensStack.pop()));
             }
             System.out.printf("Males left: ");
@@ -80,7 +87,7 @@ public class P01_Meeting {
             System.out.println("Females left: none");
         } else {
             List<String> womenLeft = new ArrayList<>();
-            while (!womenQueue.isEmpty()){
+            while (!womenQueue.isEmpty()) {
                 womenLeft.add(String.valueOf(womenQueue.poll()));
             }
 
