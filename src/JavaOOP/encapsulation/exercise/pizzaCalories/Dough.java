@@ -26,7 +26,7 @@ public class Dough {
 
     private void setBakingTechnique(String bakingTechnique) {
         boolean bakingTechniqueDoesNotExist = Arrays.stream(BakingTechnique.values()).noneMatch(e -> e.name().equals(bakingTechnique));
-        if (bakingTechniqueDoesNotExist) {
+        if(bakingTechniqueDoesNotExist){
             throw new IllegalArgumentException("Invalid type of dough.");
         }
         this.bakingTechnique = BakingTechnique.valueOf(bakingTechnique);
@@ -39,19 +39,18 @@ public class Dough {
         this.weight = weight;
     }
 
-    public double calculateCalories() {
+    public double calculateCalories(){
         return 2 * weight * bakingTechnique.getModifier() * getFlourTypeModifier();
     }
 
 
-    private double getFlourTypeModifier() {
-        switch (flourType) {
+    private double getFlourTypeModifier(){
+        switch (flourType){
             case "White":
                 return 1.5;
             case "Wholegrain":
                 return 1.0;
-            default:
-                return 0;
+            default: return 0;
         }
     }
 }

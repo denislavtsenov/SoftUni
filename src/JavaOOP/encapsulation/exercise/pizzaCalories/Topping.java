@@ -4,7 +4,6 @@ public class Topping {
     private String toppingType;
     private double weight;
 
-
     public Topping(String toppingType, double weight) {
         setToppingType(toppingType);
         setWeight(weight);
@@ -37,8 +36,8 @@ public class Topping {
         return 2 * weight * getModifier();
     }
 
-    private double getModifier() {
-        switch (toppingType) {
+    private double getModifier(){
+        switch (toppingType){
             case "Meat":
                 return 1.2;
             case "Veggies":
