@@ -75,6 +75,7 @@ public class ControllerImpl implements Controller {
         List<Discoverer> discoverers = this.discovererRepository.getCollection().stream()
                 .filter(d -> d.getEnergy() > 45)
                 .collect(Collectors.toList());
+
         if (discoverers.isEmpty()) {
             throw new IllegalArgumentException(ExceptionMessages.SPOT_DISCOVERERS_DOES_NOT_EXISTS);
         }

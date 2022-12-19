@@ -78,4 +78,6 @@ public class ControllerImpl implements Controller {
                 (int) helper.getInstruments().stream().filter(instrument -> !instrument.isBroken()).count())).collect(Collectors.toList());
         return String.format("%d presents are done!%n", size) + String.format("Helpers info:%n") + String.join("", collect).trim();
     }
+
+
 }
