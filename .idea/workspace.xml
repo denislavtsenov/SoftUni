@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="afa150e4-f5c2-463c-b1dc-61f853226aee" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="23BSRP5Btnjmr9vzOJVcmHmrPtz" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowCoverage.ShowToolbar" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SoftUni\src" />
+      <recent name="D:\SoftUni\src\vehicleExtended" />
+      <recent name="D:\SoftUni\src\ZooApp\src\main\java\zoo" />
+      <recent name="D:\SoftUni\src\multipleInheritance" />
+      <recent name="D:\SoftUni\src\multipleImplementation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SoftUni\src\JavaAdvanced\resources\exercies" />
+      <recent name="D:\SoftUni\src\JavaAdvanced\src\streamsFilesAndDirectories\lab" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="JavaOOP.examRetake10April2021" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="firstAndReserveTeam" />
+      <recent name="validationData" />
+      <recent name="salaryIncrease" />
+      <recent name="multipleImplementation" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="magicGame.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="magicGame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fairyShop.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fairyShop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="glacialExpedition.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="glacialExpedition.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="restaurant.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="restaurant.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="christmasRaces.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="christmasRaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.encapsulation.exercise.shoppingSpree.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.encapsulation.exercise.shoppingSpree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.workingWithAbstraction.exercise.cardSuit.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.workingWithAbstraction.exercise.cardSuit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaAdvanced.src.iteratorsAndComparators.strategyPattern.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaAdvanced.src.iteratorsAndComparators.strategyPattern.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.encapsulation.exercise.pizzaCalories.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.encapsulation.exercise.pizzaCalories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.encapsulation.lab.sortByNameAndAge.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.encapsulation.lab.sortByNameAndAge.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.reflection.blackBoxInteger.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.reflection.blackBoxInteger.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaAdvanced.src.definingClasses.opinionPoll.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaAdvanced.src.definingClasses.opinionPoll.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.interfacesAndAbstraction.lab.ferrari.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.interfacesAndAbstraction.lab.ferrari.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.workingWithAbstraction.exercise.cardsWithPower.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.workingWithAbstraction.exercise.cardsWithPower.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaAdvanced.src.iteratorsAndComparators.listyIterator.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaAdvanced.src.iteratorsAndComparators.listyIterator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.examRetake10April2021.aquarium.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.examRetake10April2021.aquarium.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.examRetake10April2021.aquarium.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.examRetake10April2021.aquarium.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.interfacesAndAbstraction.exercise.defineAnInterfacePerson.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.interfacesAndAbstraction.exercise.defineAnInterfacePerson.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.encapsulation.lab.salaryIncrease.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.encapsulation.lab.salaryIncrease.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.encapsulation.lab.firstAndReserveTeam.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.encapsulation.lab.firstAndReserveTeam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.interfacesAndAbstraction.exercise.birthdayCelebrations.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.interfacesAndAbstraction.exercise.birthdayCelebrations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.examRetake11December2021.catHouse.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.examRetake11December2021.catHouse.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.interfacesAndAbstraction.exercise.multipleImplementation.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.interfacesAndAbstraction.exercise.multipleImplementation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.encapsulation.exercise.animalFarm.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.encapsulation.exercise.animalFarm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="SoftUni" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="christmas.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="christmas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.workingWithAbstraction.exercise.cardRank.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.workingWithAbstraction.exercise.cardRank.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.inheritance.lab.singleInheritance.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.inheritance.lab.singleInheritance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.examRetake09April2022.fairyShop.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.examRetake09April2022.fairyShop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.examRetake18April2022.zoo.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.examRetake18April2022.zoo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.encapsulation.lab.validationData.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.encapsulation.lab.validationData.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaOOP.workingWithAbstraction.exercise.trafficLights.Main" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaOOP.workingWithAbstraction.exercise.trafficLights.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="P01_ReverseNumbersWithAStack" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="stacksAndQueues.exercises.P01_ReverseNumbersWithAStack" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stacksAndQueues.exercises.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="P06_SortLines" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-17.0.1" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="JavaAdvanced.src.streamsFilesAndDirectories.lab.P06_SortLines" />
+      <module name="SoftUni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JavaAdvanced.src.streamsFilesAndDirectories.lab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.P01_ReverseNumbersWithAStack" />
+      <item itemvalue="Application.P06_SortLines" />
+      <item itemvalue="Application.Main (3)" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (4)" />
+      <item itemvalue="Application.Main (5)" />
+      <item itemvalue="Application.Main (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main (5)" />
+        <item itemvalue="Application.Main (4)" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (3)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afa150e4-f5c2-463c-b1dc-61f853226aee" name="Changes" comment="" />
+      <created>1641205988104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1641205988104</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/streamsFilesAndDirectories/exercises/P01_SumLines.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam17Dec2019/P01_SantasPresentFactory.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam28June2020/P01_Bombs.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam28June2020/P02_Snake.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam22Feb2020/P02_ReVolt.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam17Dec2019/P02_PresentDelivery.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam17Dec2019/P02_PresentDelivery.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam13April2022/P02_Armory.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam13April2022/P01_Blacksmith.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/easterBasket/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam19February2022/P01_FoodFinder.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/parrots/Main.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/parrots/Main.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam23October2021/P02_MouseAndCheese.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam18August2021/P01_PastryShop.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam18August2021/P02_FormulaOne.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedRetakeExam15December2021/P01_Meeting.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam26June2021/P02_Python.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam22October2022/P01_EnergyDrinks.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaAdvanced/src/examPreparation/javaAdvancedExam22October2022/P01_EnergyDrinks.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaOOP/interfacesAndAbstraction/exercise/birthdayCelebrations/Main.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaOOP/encapsulation/exercise/shoppingSpree/Main.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaOOP/examRetake09April2022/fairyShop/core/ControllerImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/christmasRaces/core/ControllerImpl.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/JavaOOP/examRetake09April2022/fairyShop/core/ControllerImpl.java</url>
+          <line>19</line>
+          <properties class="JavaOOP.examRetake09April2022.fairyShop.core.ControllerImpl" method="addHelper">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/christmasRaces/core/ControllerImpl.java</url>
+          <line>109</line>
+          <properties class="christmasRaces.core.ControllerImpl" method="startRace">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/glacialExpedition/models/mission/MissionImpl.java</url>
+          <line>10</line>
+          <properties class="glacialExpedition.models.mission.MissionImpl" method="explore">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/restaurant/entities/tables/interfaces/BaseTable.java</url>
+          <line>88</line>
+          <properties class="restaurant.entities.tables.interfaces.BaseTable" method="orderHealthy">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/restaurant/core/ControllerImpl.java</url>
+          <line>158</line>
+          <properties class="restaurant.core.ControllerImpl" method="totalMoney">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="restaurant.core.ControllerImpl" memberName="healthyFoodRepository" />
+        <PinnedItemInfo parentTag="christmasRaces.repositories.interfaces.CarRepository" memberName="cars" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((DriverRepository)((ControllerImpl)this).driverRepository).drivers" custom="christmasRaces.repositories.interfaces.DriverRepository,christmasRaces.core.ControllerImpl" />
+        <watch expression="this" />
+        <watch expression="((ControllerImpl)this).healthyFoodRepository" custom="restaurant.core.ControllerImpl" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SoftUni$P01_ReverseNumbersWithAStack.ic" NAME="P01_ReverseNumbersWithAStack Coverage Results" MODIFIED="1664693376601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>stacksAndQueues.exercises.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SoftUni$P06_SortLines.ic" NAME="P06_SortLines Coverage Results" MODIFIED="1664693116077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>streamsFilesAndDirectories.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SoftUni$P01_EnergyDrinks.ic" NAME="P01_EnergyDrinks Coverage Results" MODIFIED="1666426042533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>JavaAdvanced.src.examPreparation.javaAdvancedExam22October2022.*</FILTER>
+    </SUITE>
+  </component>
+</project>
