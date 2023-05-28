@@ -1,0 +1,61 @@
+@media all and (max-width: 600px) {
+
+    main .left-to-right:first-child {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+  main .left-to-right article {
+    border-radius: 80px;
+    width: 400px;
+    height: 400px;
+    align-items: center;
+    display: flex;
+  }
+
+  header h1 {
+    font-size: 2.1rem;
+    margin: 20px auto;
+  }
+
+  header p {
+    font-size: 1rem;
+    color: #1d3f61;
+  }
+
+  main .left-to-right article p {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 2;
+  }
+
+  main .left-to-right article button {
+    display: none;
+  }
+
+  main section:nth-child(2),
+  main section:nth-child(4) {
+    display: block;
+  }
+
+  main section:nth-child(2) button {
+    display: none;
+  }
+
+  main .left-to-right article {
+    padding: 0 30px;
+  }
+
+  main section:nth-child(2), main section:nth-child(4) {
+    text-align: center;
+  }
+
+  .main section:nth-child(4) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+

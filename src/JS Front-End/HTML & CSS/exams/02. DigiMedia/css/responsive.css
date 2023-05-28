@@ -1,0 +1,90 @@
+@media all and (max-width: 600px) {
+  #home,
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar {
+    justify-content: center;
+    padding-top: 10px;
+    margin-bottom: 40px;
+  }
+
+  .navbar-light .navbar-brand {
+    margin: 0;
+  }
+
+  .hero img {
+    display: none;
+  }
+
+  .container {
+    text-align: center;
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .container h1 {
+    margin-top: 20px auto;
+    text-align: center;
+    font-size: 56px;
+    margin-bottom: 40px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+
+  article.hero-btns {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-btns {
+    margin-bottom: 50px;
+  }
+
+  .hero-btns a:first-child {
+    padding: 17px 90px;
+  }
+
+  .services {
+    padding: 150px 0px;
+  }
+
+  .service-btn {
+    margin: auto;
+  }
+
+  .service-btn a {
+    padding: 17px 100px;
+  }
+
+  .row {
+    gap: 40px;
+  }
+  .col-sm-6 {
+    max-width: 100%;
+  }
+
+  .contact-btn {
+    display: none;
+  }
+
+  .contact-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer .row {
+    width: 90%;
+    margin: auto;
+  }
+
+  #3b2aaf74-aa65-4285-b808-4361b819e75c {
+    display: none;
+  }
+}

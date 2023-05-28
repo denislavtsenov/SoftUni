@@ -1,0 +1,211 @@
+@import url("https://use.fontawesome.com/releases/v5.10.2/css/all.css");
+
+body {
+  box-sizing: border-box;
+  margin: 0px 120px;
+  padding: 0;
+  align-content: center;
+}
+
+.header {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: auto;
+}
+
+.intro-img {
+  width: 100%;
+  position: relative;
+}
+
+.intro-img img {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.intro-img::after {
+  content: "";
+  display: block;
+  background-color: #333;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-bar {
+  position: absolute;
+  display: flex;
+  width: 55%;
+  justify-content: space-between;
+  top: 24px;
+  color: white;
+}
+
+.heading-intro {
+  position: absolute;
+  top: 100px;
+  color: white;
+}
+
+.heading-intro .heading {
+  font-size: 72px;
+}
+
+.heading-intro p,
+.heading-btn {
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.heading-btn {
+  margin-top: 60px;
+  color: white;
+}
+
+.heading-btn .btn {
+  background-color: lightgreen;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 4px;
+}
+
+a.action {
+  display: block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  margin-top: 60px;
+  text-align: center;
+}
+
+article {
+  display: flex;
+}
+
+.first-article-img-wrapper {
+  width: 60%;
+  display: flex;
+  align-items: start;
+}
+
+.first-article-img-wrapper img {
+  width: 89%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.first-article-text {
+  text-align: left;
+  width: 45%;
+}
+
+.first-article-text h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.first-article-text p {
+  font-size: 30px;
+}
+
+.first-article-text ul {
+  list-style-type: none;
+  margin-top: 60px;
+  font-size: 24px;
+}
+
+.first-article-text ul li {
+  margin-bottom: 25px;
+}
+
+.first-article-text ul li i {
+  margin-right: 20px;
+  color: green;
+}
+
+article:nth-child(even) {
+  flex-direction: row-reverse;
+  display: flex;
+  justify-content: space-between;
+}
+
+second-article-text h2 {
+  text-align: center;
+}
+
+.flex-article-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 90px;
+  padding: 0;
+  margin-top: 60px;
+}
+
+.flex-article-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.flex-article-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.second-article-text {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.second-article-text h2 {
+  margin-top: 50px;
+  font-size: 38px;
+}
+
+.second-article-text p {
+  color: rgb(22, 167, 22);
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+.second-article-img-wrapper {
+  width: 49%;
+}
+
+.second-article-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+footer {
+    background-color: lightgreen;
+    text-align: center;
+    margin-top: 0;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 450px);
+  grid-template-rows: repeat(2, 1fr);
+  text-align: center;
+  justify-content: center;
+  font-size: 20px;
+  gap: 25px;
+}
+
+footer h2 {
+    font-size: 30px;
+    padding-top: 30px;
+    margin-top: 0;
+}

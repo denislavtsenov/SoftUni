@@ -1,0 +1,234 @@
+@import url("https://use.fontawesome.com/releases/v5.10.2/css/all.css");
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  background: rgb(155, 111, 16);
+  position: absolute;
+  top: 20px;
+  left: 80px;
+  z-index: 2;
+  padding: 20px;
+  cursor: pointer;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+
+ /* header nav ul li:hover {
+  background-color: rgb(155, 111, 16);
+  color: white;
+  cursor: pointer;
+} 
+
+header nav header__second-nav a:hover { 
+  background-color: rgb(155, 111, 16);
+  color: white;
+} 
+
+header a:hover {
+  color: white;
+  
+} */
+
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  margin-right: 150px;
+}
+
+header nav ul li {
+  margin-left: 20px;
+   
+}
+
+.fas,
+.far {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.slider__img-wrapper {
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+
+.slider__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__img-text {
+  position: absolute;
+  top: 240px;
+  left: 150px;
+  width: 30%;
+  color: white;
+  background-color: rgb(0 0 0 / 69%);
+  padding: 30px 20px;
+}
+
+.slider__img-text h2 {
+  font-size: 30px;
+}
+
+.slider__img-text p {
+  font-size: 20px;
+}
+
+.slider__img-text button {
+  border: 2px solid white;
+  font-size: 16px;
+  background-color: transparent;
+  color: rgb(240 162 0);
+  padding: 10px 20px;
+}
+
+.budapest-card-text {
+  background-color: rgb(155, 111, 16);
+  height: 400px;
+  margin-top: 0;
+  /* display: flex;
+  justify-content: center;
+  flex-wrap: wrap; */
+}
+
+.budapest-card-text h2 {
+  margin-top: 0;
+  padding-top: 20px;
+  color: white;
+  font-size: 30px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.budapest-card-text ul {
+  list-style: none;
+  text-align: left;
+  color: white;
+  margin: 30px auto;
+  font-size: 20px;
+  width: 30%;
+}
+
+.budapest-card-text ul li {
+  margin-bottom: 12px;
+}
+
+.budapest-card-text button {
+  display: flex;
+  margin: 30px auto;
+  background-color: transparent;
+  padding: 20px 40px;
+  border: 2px solid white;
+  color: white;
+}
+
+.landmarks {
+  text-align: center;
+}
+
+.landmarks h2 {
+  font-size: 36px;
+  color: rgb(153, 152, 152);
+  letter-spacing: 2px;
+}
+
+.landmarks p {
+  font-size: 18px;
+  color: rgb(153, 152, 152);
+}
+
+.landmarks__img-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-right: 4px;
+  margin-bottom: 20px;
+}
+
+.landmarks__image {
+  border-radius: 100%;
+  margin-right: 16px;
+  width: 200px;
+  height: 200px;
+}
+
+.landmarks__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 2px solid grey;
+  padding: 2px;
+}
+
+.landmarks__image p {
+  font-size: 16px;
+}
+
+.newsletter {
+  background-color: rgb(155, 111, 16);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 90px;
+}
+
+.newsletter__text {
+  color: white;
+  padding: 10px 18px;
+}
+
+.newsletter__text h3 {
+  margin-bottom: 4px;
+}
+
+.newsletter__text p {
+  margin-top: 4px;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.newsletter__button {
+  padding: 10px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter__button button {
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: rgb(155, 111, 16);
+}
+
+footer {
+  text-align: center;
+}
