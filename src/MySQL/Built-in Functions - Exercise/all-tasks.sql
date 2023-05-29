@@ -90,6 +90,7 @@ WHERE `country_name` LIKE '%a%a%a%'
 ORDER BY `iso_code`; 
 
 
+<<<<<<< Updated upstream
 -- 11. Mix of Peak and River Names
 
 SELECT 
