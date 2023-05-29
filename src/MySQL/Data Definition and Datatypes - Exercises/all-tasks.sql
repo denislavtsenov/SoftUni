@@ -200,7 +200,94 @@ VALUES ('Gosho'),
    ('Alf');
  
  SELECT * FROM `movies`;
+ 
+ 
+ -- 12. Car Rental Database
+ 
+ CREATE DATABASE `car_rental`;
+USE `car_rental`;
 
+CREATE TABLE `categories` (
+id INT PRIMARY KEY AUTO_INCREMENT, 
+category VARCHAR(50), 
+daily_rate DECIMAL(5,2), 
+weekly_rate DECIMAL (5,2), 
+monthly_rate DECIMAL(5,2),
+weekend_rate DECIMAL(5,2)
+);
+
+INSERT INTO `categories`(`category`)
+VALUES ('Van'), ('Jeep'), ('Car');
+
+CREATE TABLE `cars` (
+id INT PRIMARY KEY AUTO_INCREMENT, 
+plate_number INT, 
+make VARCHAR(20), 
+model VARCHAR(20), 
+car_year DATE, 
+category_id INT, 
+doors INT, 
+picture BLOB, 
+car_condition VARCHAR(200),
+available BOOLEAN
+);
+
+INSERT INTO `cars` (`make`, `model`)
+VALUES ('VW', 'GOLF'),
+ ('VW', 'GOLF'),
+ ('VW', 'GOLF');
+
+CREATE TABLE `employees` (
+id INT PRIMARY KEY AUTO_INCREMENT, 
+first_name VARCHAR(50) NOT NULL, 
+last_name VARCHAR(50) NOT NULL, 
+title VARCHAR(100), 
+notes VARCHAR(250)
+);
+
+INSERT INTO `employees`(`first_name`, `last_name`)
+VALUES ('Gosho', 'Goshov'),
+ ('Gosho', 'Goshov'),
+ ('Gosho', 'Goshov');
+
+CREATE TABLE `customers` (
+`id` INT PRIMARY KEY AUTO_INCREMENT, 
+`driver_licence_number` INT, 
+`full_name` VARCHAR(100) NOT NULL, 
+`address` VARCHAR(300), 
+`city` VARCHAR(200) NOT NULL, 
+`zip_code` INT, 
+`notes` VARCHAR(500)
+);
+
+INSERT INTO `customers`(`full_name`, `city`)
+VALUES ('Gosho Peshov', 'Krivodol'),
+ ('Gosho Peshov', 'Krivodol'),
+ ('Gosho Peshov', 'Krivodol');
+ 
+ CREATE TABLE `rental_orders` (
+ `id` INT PRIMARY KEY AUTO_INCREMENT, 
+ `employee_id` INT, 
+ `customer_id`INT, 
+ `car_id` INT, 
+ `car_condition` VARCHAR(10), 
+ `tank_level` INT,
+`kilometrage_start` INT, 
+`kilometrage_end` INT, 
+`total_kilometrage` INT, 
+`start_date` DATE, 
+`end_date` DATE,
+`total_days` INT, 
+`rate_applied` DECIMAL(4,2), 
+`tax_rate` DECIMAL(10,2), 
+`order_status` VARCHAR(10), 
+`notes` TEXT
+);
+
+INSERT INTO `rental_orders`(`employee_id`, `car_id`)
+VALUES (1, 2),
+ (1, 2),
+ (1, 2);
 
 -- 13 Basic Insert
 
