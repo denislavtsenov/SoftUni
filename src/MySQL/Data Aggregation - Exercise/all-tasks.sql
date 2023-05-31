@@ -1,4 +1,3 @@
--- 01. Records’ Count
 USE `gringotts`;
 -- 01. Records’ Count
 
