@@ -58,3 +58,17 @@ WHERE e.`salary` > 15000
 ORDER BY d.`department_id` DESC
 LIMIT 5;
 
+
+-- 05. Employees Without Project
+
+SELECT 
+e.`employee_id`,
+e.`first_name`
+FROM `employees` AS e
+LEFT JOIN `employees_projects` AS ep
+ON ep.`employee_id` = e.`employee_id`
+WHERE `project_id` IS NULL
+ORDER BY `employee_id` DESC 
+LIMIT 3;
+
+
