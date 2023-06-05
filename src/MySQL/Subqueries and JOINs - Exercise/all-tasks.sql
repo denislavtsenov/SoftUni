@@ -72,3 +72,19 @@ ORDER BY `employee_id` DESC
 LIMIT 3;
 
 
+-- 06. Employees Hired After
+
+SELECT
+`first_name`,
+`last_name`,
+`hire_date`,
+d.`name` AS 'dept_name'
+FROM `employees` AS e
+JOIN `departments` AS d
+ON d.`department_id` = e.`department_id`
+WHERE `hire_date` > '1999-01-01' 
+AND d.`name` IN ('Sales', 'Finance')
+ORDER BY `hire_date`;
+
+
+
