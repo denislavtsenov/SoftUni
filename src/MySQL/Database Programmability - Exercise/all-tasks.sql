@@ -169,3 +169,22 @@ CREATE PROCEDURE usp_deposit_money(account_id INT, money_amount DECIMAL(19,4))
 	END$$
 DELIMITER ;
 
+
+-- 13. Withdraw Money
+
+DELIMITER $$
+CREATE PROCEDURE usp_withdraw_money(account_id INT, money_amount DECIMAL(19,4))
+	BEGIN
+		START TRANSACTION;
+        CASE
+			WHEN money_amount <= 0 OR 
+            (SELECT `balance` FROM `accounts` AS a
+            WHERE a.`id` = account_id) < money_amount THEN ROLLBACK;
+            ELSE UPDATE `accounts` AS a
+            SET a.`balance` = a.`balance` - money_amount
+             WHERE a.`id` = account_id;
+		END CASE;
+	END$$
+DELIMITER ;
+;
+
