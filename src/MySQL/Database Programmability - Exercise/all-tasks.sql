@@ -28,3 +28,16 @@ DELIMITER ;
 ;
 
 
+-- 03. Town Names Starting With
+
+DELIMITER $$
+CREATE PROCEDURE usp_get_towns_starting_with(starting_letter VARCHAR(50))
+BEGIN
+	SELECT `name`
+	FROM `towns`
+	WHERE `name` LIKE (CONCAT(starting_letter, '%'))
+	ORDER BY `name`;
+END$$
+DELIMITER ;
+;
+
