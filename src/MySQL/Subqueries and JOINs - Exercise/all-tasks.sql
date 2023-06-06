@@ -198,3 +198,18 @@ WHERE c.`country_code` IN ('BG', 'RU', 'US')
 GROUP BY c.`country_code`
 ORDER BY `mountain_range` DESC;
 
+
+-- 14. Countries with Rivers
+
+SELECT 
+c.`country_name`,
+r.`river_name`
+FROM `countries` c
+LEFT JOIN `countries_rivers` AS cr
+ON cr.`country_code` = c.`country_code`
+LEFT JOIN `rivers` AS r
+ON r.`id` = cr.`river_id`
+WHERE c.`continent_code` IN ('AF')
+ORDER BY c.`country_name`
+LIMIT 5;
+
