@@ -188,3 +188,32 @@ CREATE PROCEDURE usp_withdraw_money(account_id INT, money_amount DECIMAL(19,4))
 DELIMITER ;
 ;
 
+
+-- 14. Money Transfer
+
+DELIMITER &&
+CREATE PROCEDURE usp_transfer_money(fromID int, toID int,money_amount decimal(19,4))
+	BEGIN
+		START TRANSACTION;
+        CASE 
+			WHEN 
+				(money_amount <= 0 
+                OR (SELECT `balance` FROM `accounts` AS a
+				WHERE a.`id` = fromID) < money_amount 
+				OR fromID = toID
+				OR (SELECT COUNT(id) FROM `accounts` WHERE `id` = fromID) <> 1
+				OR (SELECT COUNT(id) FROM `accounts` WHERE `id` = toID) <> 1)
+				THEN ROLLBACK;
+			ELSE
+				UPDATE `accounts`
+				SET `balance` = `balance` - money_amount
+				WHERE `id` = fromID;
+				UPDATE `accounts`
+				SET `balance` = `balance` + money_amount
+				WHERE `id` = toID;
+				COMMIT;
+		END CASE;
+	END$$
+DELIMITER ;
+;
+
