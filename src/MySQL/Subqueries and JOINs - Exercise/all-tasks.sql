@@ -213,3 +213,15 @@ WHERE c.`continent_code` IN ('AF')
 ORDER BY c.`country_name`
 LIMIT 5;
 
+
+-- 16. Countries without any Mountains
+
+SELECT
+COUNT(c.`country_name`) AS 'country_count'
+FROM `countries` AS c
+LEFT JOIN `mountains_countries` AS mc
+ON mc.`country_code` = c.`country_code`
+LEFT JOIN `mountains` AS m
+ON m.`id` = mc.`mountain_id`
+WHERE m.`mountain_range` IS NULL;
+
