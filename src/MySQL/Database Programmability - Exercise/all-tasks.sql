@@ -61,3 +61,23 @@ END$$
 DELIMITER ;
 ;
 
+
+-- 05. Salary Level Function
+
+DELIMITER $$
+CREATE FUNCTION ufn_get_salary_level (needed_salary DECIMAL(19,4))
+RETURNS VARCHAR(50)
+DETERMINISTIC
+BEGIN
+	DECLARE salary_level VARCHAR(50);
+
+	CASE
+		WHEN needed_salary < 30000 THEN SET salary_level := 'Low';
+		WHEN needed_salary <= 50000 THEN SET salary_level := 'Average';
+		ELSE SET salary_level := 'High';
+	END CASE;
+    RETURN salary_level;
+END$$
+DELIMITER ;
+;
+
