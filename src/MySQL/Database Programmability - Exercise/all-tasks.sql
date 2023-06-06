@@ -153,3 +153,19 @@ CREATE PROCEDURE usp_calculate_future_value_for_account(searched_id INT, interes
 DELIMITER ;
 ;
 
+
+-- 12. Deposit Money
+
+DELIMITER $$
+CREATE PROCEDURE usp_deposit_money(account_id INT, money_amount DECIMAL(19,4))
+	BEGIN
+		START TRANSACTION;
+        CASE
+			WHEN money_amount <= 0 THEN ROLLBACK;
+            ELSE UPDATE `accounts` AS a
+            SET a.`balance` = a.`balance` + money_amount
+            WHERE a.`id` = account_id;
+		END CASE;
+	END$$
+DELIMITER ;
+
