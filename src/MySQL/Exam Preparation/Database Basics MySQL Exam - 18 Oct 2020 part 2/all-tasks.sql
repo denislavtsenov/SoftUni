@@ -88,6 +88,12 @@ REFERENCES `employees`(`id`)
 
 -- 02. Insert
 
+INSERT INTO `products_stores`(`product_id`, `store_id`)
+SELECT p.`id`, 1
+FROM `products` AS p
+LEFT JOIN `products_stores` AS ps ON ps.`product_id` = p.`id`
+WHERE ps.`product_id` IS NULL;
+
 -- 03. Update
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -210,13 +216,32 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE udp_update_product_price (address_name VARCHAR (50))
 BEGIN
-	UPDATE `products`
+	UPDATE `products` AS p
+	JOIN `products_stores` AS ps ON p.`id` = ps.`product_id`
+	JOIN `stores` AS s ON s.`id` = ps.`store_id`
+	JOIN `addresses` AS a ON a.`id` = s.`address_id`
 	SET `price` = (
-	CASE 
-		WHEN address_name LIKE ('0%') THEN `price` + 100
-		ELSE `price` + 200
-	END
-);
-END$$
+		CASE 
+			WHEN LEFT(address_name, 1) = 0 THEN `price` + 100
+			WHEN LEFT(address_name, 1) != 0 THEN `price` + 200
+			ELSE `price` = `price`
+		END
+	)
+	WHERE a.`name` = address_name;
+	END$$
 DELIMITER ;
 ; 
+
+
+UPDATE `products` AS p
+JOIN `product_stores` AS ps ON p.`id` = ps.`product_id`
+JOIN `stores` AS s ON s.`id` = ps.`store_id`
+JOIN `addresses` AS a ON a.`id` = s.`address.id`
+SET `price` = (
+	CASE 
+		WHEN LEFT(address_name, 1) = 0 THEN `price` + 100
+		WHEN LEFT(address_name, 1) != 0 THEN `price` + 200
+        ELSE `price` = `price`
+	END
+)
+WHERE a.`name` = address_name;
