@@ -107,3 +107,31 @@ WHERE `manager_id` IS NOT NULL AND `salary` >= 6000;
 
 -- 05. Employees
 
+SELECT
+`first_name`,
+`middle_name`,
+`last_name`,
+`salary`,
+`hire_date`
+FROM `employees`
+ORDER BY `hire_date` DESC;
+
+
+-- 06. Products with old pictures
+
+SELECT
+p.`name`,
+p.`price`,
+p.`best_before`,
+(SELECT CONCAT(LEFT(p.`description`, 10), '...')) AS 'short_description',
+pi.`url`
+FROM `products` AS p
+JOIN `pictures` AS pi ON pi.`id` = p.`picture_id`
+WHERE LENGTH(p.`description`) > 100 
+AND YEAR(pi.`added_on`) < 2019
+AND p.`price` > 20
+ORDER BY p.`price` DESC;
+
+
+-- 07. Counts of products in stores
+
