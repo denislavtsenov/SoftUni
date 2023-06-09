@@ -164,7 +164,59 @@ JOIN `addresses` AS a ON a.`id` = s.`address_id`
 WHERE e.`salary` < 4000
 AND a.`name` LIKE ('%5%')
 AND LENGTH(s.`name`) > 8
-AND RIGHT(e.`last_name`, 1) = 'n' 
+AND RIGHT(e.`last_name`, 1) = 'n';
 
 
 -- 09. Find all information of stores
+
+SELECT
+REVERSE(s.`name`) AS 'reversed_name',
+CONCAT_WS('-', UPPER(t.`name`), a.`name`) AS 'full_address',
+COUNT(e.`id`)
+FROM `stores` AS s
+JOIN `addresses` AS a ON a.`id` = s.`address_id`
+JOIN `towns` AS t ON t.`id` = a.`town_id`
+JOIN `employees` AS e ON e.`store_id` = s.`id`
+GROUP BY s.`id`
+ORDER BY `full_address`;
+
+
+-- 10. Find name of top paid employee by store name
+
+DELIMITER $$
+CREATE FUNCTION udf_top_paid_employee_by_store(store_name VARCHAR(50))
+RETURNS VARCHAR(1000)
+DETERMINISTIC
+		BEGIN
+        DECLARE full_store_info VARCHAR(1000);
+        SET full_store_info := (
+			SELECT  
+			CONCAT_WS(' ', e.`first_name`, CONCAT(e.`middle_name`, '.'), e.`last_name`,
+			'works in store for',  YEAR('2020-10-18') - YEAR(`hire_date`), 'years')   
+			AS 'full_info'
+			FROM `employees` AS e
+			JOIN `stores` AS s ON s.`id` = e.`store_id`
+			WHERE s.`name` = store_name
+			ORDER BY `salary` DESC
+			LIMIT 1);
+		RETURN full_store_info;
+		END$$
+DELIMITER ;
+;
+
+
+-- 11. Update product price by address
+
+DELIMITER $$
+CREATE PROCEDURE udp_update_product_price (address_name VARCHAR (50))
+BEGIN
+	UPDATE `products`
+	SET `price` = (
+	CASE 
+		WHEN address_name LIKE ('0%') THEN `price` + 100
+		ELSE `price` + 200
+	END
+);
+END$$
+DELIMITER ;
+; 
