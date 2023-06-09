@@ -84,3 +84,20 @@ CONSTRAINT sr_fk_employees_manager
 FOREIGN KEY (manager_id) 
 REFERENCES `employees`(`id`)
 );
+
+
+-- 02. Insert
+
+-- 03. Update
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ UPDATE `employees`
+SET `manager_id` = 3
+AND `salary` = `salary` - 500
+WHERE YEAR(`hire_date`) > 2003 
+AND `store_id` NOT IN (5, 14);
+
+
+-- 04. Delete
+
