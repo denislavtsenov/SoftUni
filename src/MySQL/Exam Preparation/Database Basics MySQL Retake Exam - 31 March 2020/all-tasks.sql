@@ -114,3 +114,54 @@ ON c.`photo_id` = p.`id`
 GROUP BY c.`photo_id`
 ORDER BY `commentsCount` DESC, p.`id` ASC
 LIMIT 5;
+
+
+-- 07. Lucky users
+
+-- SELECT
+-- CONCAT_WS(' ', u.`id`, u.`username`) AS 'id_username',
+-- u.`email`
+-- FROM `users` AS u
+-- JOIN `users_photos` AS up ON up.`user_id` = u.`id`
+-- WHERE up.`user_id` = up.`photo_id`
+-- ORDER BY `id_username`;
+
+
+-- 08. Count likes and comments
+
+-- 09. The photo on the tenth day of the month
+
+-- 10. Get user’s photos count
+
+DELIMITER $$
+CREATE FUNCTION udf_users_photos_count(username VARCHAR(30))
+RETURNS INT
+DETERMINISTIC
+	BEGIN
+		DECLARE photos_count INT;
+		SET photos_count = (
+		SELECT COUNT(u.`id`) AS 'photosCount'
+		FROM `users` AS u
+		JOIN `users_photos` AS up ON up.`user_id` = u.`id`
+		JOIN `photos` AS p ON p.`id` = up.`photo_id`
+		WHERE u.`username` = username
+		GROUP BY u.`id`);
+	RETURN photos_count;
+	END $$
+DELIMITER ;
+;
+
+
+-- 11. Increase user age
+
+DELIMITER $$
+CREATE PROCEDURE udp_modify_user (address VARCHAR(30), town VARCHAR(30))
+	BEGIN
+UPDATE `users` AS u
+JOIN `addresses` AS a ON a.`user_id` = u.`id`
+SET `age` = `age` + 10
+WHERE a.`address` = address
+AND a.`town` = town;
+	END$$
+DELIMITER ;
+;
