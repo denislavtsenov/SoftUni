@@ -93,11 +93,17 @@ REFERENCES `employees`(`id`)
 SET FOREIGN_KEY_CHECKS=0;
 
  UPDATE `employees`
-SET `manager_id` = 3
+SET `manager_id` = '3'
 AND `salary` = `salary` - 500
 WHERE YEAR(`hire_date`) > 2003 
 AND `store_id` NOT IN (5, 14);
 
 
 -- 04. Delete
+
+DELETE FROM `employees`
+WHERE `manager_id` IS NOT NULL AND `salary` >= 6000;
+
+
+-- 05. Employees
 
