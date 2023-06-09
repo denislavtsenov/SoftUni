@@ -135,3 +135,36 @@ ORDER BY p.`price` DESC;
 
 -- 07. Counts of products in stores
 
+SET sql_mode = '';
+
+SELECT 
+s.`name`,
+CASE
+WHEN p.`id` IS NULL THEN s.`id` = 0
+ELSE COUNT(s.`id`)
+END AS 'product_count',
+ROUND(AVG(p.`price`), 2) AS 'avg'
+FROM `stores` AS s
+LEFT JOIN `products_stores` AS ps ON ps.`store_id` = s.`id`
+LEFT JOIN `products` AS p ON ps.`product_id` = p.`id`
+GROUP BY s.`id`
+ORDER BY `product_count` DESC, `avg` DESC, s.`id` ASC;
+
+
+-- 08. Specific employee
+
+SELECT
+CONCAT_WS(' ', e.`first_name`, e.`last_name`) AS 'Full_name',
+s.`name` AS 'Store_name',
+a.`name` AS 'address',
+e.`salary`
+FROM `employees` AS e
+JOIN `stores` AS s ON s.`id` = e.`store_id`
+JOIN `addresses` AS a ON a.`id` = s.`address_id`
+WHERE e.`salary` < 4000
+AND a.`name` LIKE ('%5%')
+AND LENGTH(s.`name`) > 8
+AND RIGHT(e.`last_name`, 1) = 'n' 
+
+
+-- 09. Find all information of stores
