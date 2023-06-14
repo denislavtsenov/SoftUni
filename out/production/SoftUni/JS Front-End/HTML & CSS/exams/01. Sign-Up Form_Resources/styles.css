@@ -1,0 +1,129 @@
+body {
+    background-color: lightgray;
+    position: relative;
+   
+}
+
+.wrapper {
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    width: 60%;
+ 
+    margin: 200px auto;
+    box-shadow: 0px 0px 1px 1px;
+    height: 600px;
+
+}
+
+
+.first-section {
+    position: relative;
+}
+
+.first-section a,
+.text {
+    position: absolute;
+}
+
+.first-section a {
+    top: 40px;
+    left: 40px;
+    text-decoration: none;
+    color: white;
+}
+
+.text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 52px;
+    margin-bottom: 6px;
+}
+
+p {
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.img-wrapper {
+   height: 600px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.img-wrapper::after {
+    content: "";
+  display: block;
+  background-color: #333;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+input, label {
+    display: block;
+}
+
+.second-section {
+    background-color: white;
+    height: 600px;
+}
+
+.form {
+    width: 80%;
+    margin: 60px auto;
+    font-size: 24px;
+    color: lightgray;
+}
+
+.form label,
+.form input {
+    margin-bottom: 25px;
+}
+
+.form input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.action {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.second-section button {
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    padding: 12px 50px;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.second-section a {
+    color: lightgray;
+    font-size: 18px;
+}

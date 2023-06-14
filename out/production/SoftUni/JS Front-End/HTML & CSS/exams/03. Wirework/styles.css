@@ -1,0 +1,162 @@
+@import url("https://use.fontawesome.com/releases/v5.10.2/css/all.css");
+
+body {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 60px;
+}
+
+.header__logo {
+  display: flex;
+  width: 30%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__logo-heading {
+  font-weight: bold;
+  font-size: 36px;
+  border-right: 1px solid gray;
+  padding-right: 20px;
+}
+
+.header__logo-desc {
+  padding-left: 20px;
+  font-size: 14px;
+  color: gray;
+}
+
+.header__nav {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  align-items: center;
+  width: 60%;
+  justify-content: flex-end;
+}
+
+.header__nav-item button {
+  color: gray;
+  padding: 15px 40px;
+  border: none;
+  cursor: pointer;
+}
+
+.header__nav-item button:hover {
+  color: white;
+  background-color: orange;
+}
+
+.hero__img-wrapper img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.hero__text {
+  background-color: orange;
+  color: white;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -5px;
+}
+
+.hero__text p {
+  font-size: 24px;
+  color: white;
+  width: 80%;
+}
+
+.icons,
+.text-cards {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  background-color: rgb(56, 56, 56);
+}
+
+.icons_card,
+.card {
+  width: 20%;
+  text-align: center;
+  padding: 80px 10px;
+}
+
+.icons_card .icon {
+  background-color: orange;
+  font-size: 30px;
+  color: white;
+  padding: 15px;
+}
+
+.icons_card p {
+  color: white;
+}
+
+.icons_card hr,
+.icons_card p:last-child {
+  color: gray;
+}
+
+.text-and-button {
+  text-align: center;
+  padding: 60px;
+}
+
+.text-and-button-heading {
+  font-weight: bold;
+  font-size: 48px;
+}
+
+.text-and-button-desc {
+  font-size: 24px;
+  color: gray;
+}
+
+.text-and-button-btn {
+  color: white;
+  background-color: green;
+  padding: 15px 40px;
+  font-size: 24px;
+  border: none;
+}
+
+.text-cards {
+    text-align: center;
+}
+
+
+
+.card p:first-child {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.card p:last-child {
+    color: gray;
+    font-size: 18px;
+}
+
+footer {
+    background-color: green;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    height: 200px;
+    color: gray
+}
+
+
+footer span.light {
+    color: lightgray;
+}

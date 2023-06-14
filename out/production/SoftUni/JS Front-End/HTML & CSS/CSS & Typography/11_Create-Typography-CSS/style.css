@@ -1,0 +1,41 @@
+html {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, serif;
+}
+
+blockquote {
+  border-left-style: solid;
+  border-left-width: 4px;
+  border-left-color: rgb(221, 221, 221);
+  padding: 20px;
+}
+
+blockquote p:nth-child(3) {
+  text-align: right;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+table {
+  width: 100%;
+}
+
+table thead  td{
+  background-color: rgb(54, 50, 50);
+}
+
+tr:nth-child(odd) {
+  background-color: lightgray;
+}
