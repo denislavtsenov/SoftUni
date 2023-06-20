@@ -7,12 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        Properties props = new Properties();
-        props.setProperty("user", "root");
-        props.setProperty("password", "1234");
-
-        Connection connection =
-                DriverManager.getConnection("jdbc:mysql://localhost:3306/minions_db", props);
+        Connection connection = utils.myConnector.getConnection();
 
         Scanner scanner = new Scanner(System.in);
         int minionId = Integer.parseInt(scanner.nextLine());

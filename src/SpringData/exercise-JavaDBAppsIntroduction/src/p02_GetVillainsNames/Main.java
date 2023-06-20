@@ -1,29 +1,32 @@
 package p02_GetVillainsNames;
 
 import java.sql.*;
-import java.util.Properties;
+
 
 public class Main {
+    private static final String SELECT_VILLAIN_WITH_OVER_15_MINIONS =
+            "SELECT v.name, COUNT(distinct mv.`minion_id`) AS count " +
+                    "FROM `villains` AS v " +
+                    "JOIN `minions_villains` AS mv ON v.id = mv.villain_id " +
+                    "GROUP BY mv.`villain_id` " +
+                    "HAVING COUNT(distinct mv.`minion_id`) > 15;";
+
+    private static final String PRINT_VILLAIN_NAME_MINIONS_COUNT = "%s %d";
+
     public static void main(String[] args) throws SQLException {
-        Properties props = new Properties();
-        props.setProperty("user", "root");
-        props.setProperty("password", "1234");
 
-        Connection connection =
-                DriverManager.getConnection("jdbc:mysql://localhost:3306/minions_db", props);
+        Connection connection = utils.myConnector.getConnection();
 
-        PreparedStatement stmt = connection.prepareStatement("SELECT v.name, COUNT(distinct mv.`minion_id`) AS count " +
-                "FROM `villains` AS v " +
-                "JOIN `minions_villains` AS mv ON v.id = mv.villain_id " +
-                "GROUP BY mv.`villain_id` " +
-                "HAVING COUNT(distinct mv.`minion_id`) > 15;");
+        PreparedStatement selectVillains = connection.prepareStatement(SELECT_VILLAIN_WITH_OVER_15_MINIONS);
 
-       ResultSet villainsResultSet = stmt.executeQuery();
+        ResultSet villainsResultSet = selectVillains.executeQuery();
 
-       while (villainsResultSet.next()) {
-           System.out.printf("%s %d",
-                   villainsResultSet.getString("name"),
-                   villainsResultSet.getInt("count"));
-       }
+        while (villainsResultSet.next()) {
+
+            String villainName = villainsResultSet.getString("name");
+            int minionsCount = villainsResultSet.getInt("count");
+
+            System.out.printf(PRINT_VILLAIN_NAME_MINIONS_COUNT, villainName, minionsCount);
+        }
     }
 }

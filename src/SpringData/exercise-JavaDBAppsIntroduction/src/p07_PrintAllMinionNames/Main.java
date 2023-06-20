@@ -5,12 +5,8 @@ import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        Properties props = new Properties();
-        props.setProperty("user", "root");
-        props.setProperty("password", "1234");
 
-        Connection connection =
-                DriverManager.getConnection("jdbc:mysql://localhost:3306/minions_db", props);
+        Connection connection = utils.myConnector.getConnection();
 
         PreparedStatement stmt = connection.prepareStatement("SELECT `name` FROM `minions`;",
                 ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -18,16 +14,16 @@ public class Main {
 
         ResultSet minionsResultSet = stmt.executeQuery();
 
-int minionsCount = 0;
+        int minionsCount = 0;
 
-      while (minionsResultSet.next()) {
-          minionsCount++;
-      }
+        while (minionsResultSet.next()) {
+            minionsCount++;
+        }
 
         int firstIndex = 1;
         int lastIndex = minionsCount;
 
-      minionsResultSet.beforeFirst();
+        minionsResultSet.beforeFirst();
 
         for (int i = 1; i < minionsCount + 1; i++) {
 
