@@ -59,10 +59,8 @@ public class Main {
 
         int townId = 0;
         if (!townResultSet.next()) {
-            PreparedStatement insertTown = connection.prepareStatement(INSERT_TOWN);
 
-            insertTown.setString(1, inputMinionTown);
-            insertTown.executeUpdate();
+            insertTown(connection, inputMinionTown);
 
             ResultSet newTownsSet = selectTown.executeQuery();
             newTownsSet.next();
@@ -81,9 +79,7 @@ public class Main {
         int villainId = 0;
         if (!villainResultSet.next()) {
 
-            PreparedStatement insertVillain = connection.prepareStatement(INSERT_VILLAIN_QUERY);
-            insertVillain.setString(1, inputVillainName);
-            insertVillain.executeUpdate();
+            insertVillain(connection, inputVillainName);
 
             ResultSet newVillainResultSet = selectVillain.executeQuery();
             newVillainResultSet.next();
@@ -94,6 +90,42 @@ public class Main {
             villainId = villainResultSet.getInt("id");
         }
 
+        insertMinion(connection, inputMinionName, inputMinionAge, townId);
+
+        int lastMinionId = 0;
+
+        ResultSet lastMinionSet = getLastMinionId(connection);
+
+        lastMinionId = lastMinionSet.getInt("id");
+
+        insertIntoMinionsVillains(connection, villainId, lastMinionId);
+
+        System.out.printf(PRINT_ADDED_MINION_TO_VILLAIN_MESSAGE,
+                inputMinionName, inputVillainName);
+
+    }
+
+    private static void insertTown(Connection connection, String inputMinionTown) throws SQLException {
+        PreparedStatement insertTown = connection.prepareStatement(INSERT_TOWN);
+        insertTown.setString(1, inputMinionTown);
+        insertTown.executeUpdate();
+    }
+
+    private static ResultSet getLastMinionId(Connection connection) throws SQLException {
+        PreparedStatement getLastMinionId = connection.prepareStatement(SELECT_LAST_MINION_QUERY);
+        ResultSet lastMinionSet = getLastMinionId.executeQuery();
+        lastMinionSet.next();
+        return lastMinionSet;
+    }
+
+    private static void insertIntoMinionsVillains(Connection connection, int villainId, int lastMinionId) throws SQLException {
+        PreparedStatement insertInMinionsVillains = connection.prepareStatement(INSERT_IN_MINIONS_VILLAINS);
+        insertInMinionsVillains.setInt(1, lastMinionId);
+        insertInMinionsVillains.setInt(2, villainId);
+        insertInMinionsVillains.executeUpdate();
+    }
+
+    private static void insertMinion(Connection connection, String inputMinionName, int inputMinionAge, int townId) throws SQLException {
         PreparedStatement insertMinion = connection.prepareStatement(INSERT_MINION_QUERY);
 
         insertMinion.setString(1, inputMinionName);
@@ -101,23 +133,11 @@ public class Main {
         insertMinion.setInt(3, townId);
 
         insertMinion.executeUpdate();
+    }
 
-        int lastMinionId = 0;
-        PreparedStatement getLastMinionId = connection.prepareStatement(SELECT_LAST_MINION_QUERY);
-
-        ResultSet lastMinionSet = getLastMinionId.executeQuery();
-        lastMinionSet.next();
-
-        lastMinionId = lastMinionSet.getInt("id");
-
-
-        PreparedStatement insertInMinionsVillains = connection.prepareStatement(INSERT_IN_MINIONS_VILLAINS);
-        insertInMinionsVillains.setInt(1, lastMinionId);
-        insertInMinionsVillains.setInt(2, villainId);
-        insertInMinionsVillains.executeUpdate();
-
-        System.out.printf(PRINT_ADDED_MINION_TO_VILLAIN_MESSAGE,
-                inputMinionName, inputVillainName);
-
+    private static void insertVillain(Connection connection, String inputVillainName) throws SQLException {
+        PreparedStatement insertVillain = connection.prepareStatement(INSERT_VILLAIN_QUERY);
+        insertVillain.setString(1, inputVillainName);
+        insertVillain.executeUpdate();
     }
 }

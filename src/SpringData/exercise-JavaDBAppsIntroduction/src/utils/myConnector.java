@@ -10,7 +10,7 @@ public enum myConnector {
     private static Connection connection;
 
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "@teslata777!@#";
+    private static final String PASSWORD = "1234";
     private static final String DATABASE_NAME = "minions_db";
 
 
