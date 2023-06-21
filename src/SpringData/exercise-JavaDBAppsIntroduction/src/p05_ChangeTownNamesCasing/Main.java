@@ -47,6 +47,7 @@ public class Main {
         } else {
             System.out.println(PRINT_NO_TOWN_NAMES_AFFECTED);
         }
+        connection.close();
     }
 
     private static int updateTownsName(Connection connection, String country) throws SQLException {

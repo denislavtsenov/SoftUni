@@ -103,6 +103,7 @@ public class Main {
         System.out.printf(PRINT_ADDED_MINION_TO_VILLAIN_MESSAGE,
                 inputMinionName, inputVillainName);
 
+        connection.close();
     }
 
     private static void insertTown(Connection connection, String inputMinionTown) throws SQLException {

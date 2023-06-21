@@ -28,5 +28,6 @@ public class Main {
 
             System.out.printf(PRINT_VILLAIN_NAME_MINIONS_COUNT, villainName, minionsCount);
         }
+        connection.close();
     }
 }

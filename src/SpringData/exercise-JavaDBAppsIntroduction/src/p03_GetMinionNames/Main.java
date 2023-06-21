@@ -48,6 +48,7 @@ public class Main {
 
             printAllMinionsForVillain(minionsResultSet);
         }
+        connection.close();
     }
 
     private static void printVillainName(ResultSet villainResultSet) throws SQLException {

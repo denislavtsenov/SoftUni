@@ -36,5 +36,7 @@ public class Main {
         } else {
             System.out.println(PRINT_MINION_DOES_NOT_EXIST);
         }
+
+        connection.close();
     }
 }

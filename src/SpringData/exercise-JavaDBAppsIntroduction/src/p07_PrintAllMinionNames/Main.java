@@ -24,6 +24,8 @@ public class Main {
         minionsResultSet.beforeFirst();
 
         printMinionsNames(minionsResultSet, minionsCount, firstIndex, lastIndex);
+
+        connection.close();
     }
 
     private static int getMinionsCount(ResultSet minionsResultSet) throws SQLException {

@@ -31,6 +31,8 @@ public class Main {
         ResultSet minionsResultSet = getAllMinions.executeQuery();
 
         printMinionsNameAndAge(minionsResultSet);
+
+        connection.close();
     }
 
     private static void updateMinionsByIds(Connection connection, int[] minionIds) throws SQLException {
