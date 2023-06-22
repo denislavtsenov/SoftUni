@@ -2,7 +2,6 @@ package p08_IncreaseMinionsAge;
 
 import java.sql.*;
 import java.util.Arrays;
-import java.util.Properties;
 import java.util.Scanner;
 
 public class Main {
