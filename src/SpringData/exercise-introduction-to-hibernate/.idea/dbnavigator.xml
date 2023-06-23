@@ -22,15 +22,24 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="2c91ca6e-8fba-4f6b-93f7-40f4ee3cdb05" dataset="soft_uni.addresses" active-filter-id="" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
       <connection id="2c91ca6e-8fba-4f6b-93f7-40f4ee3cdb05" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="SoftUniConnection" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
@@ -45,8 +54,8 @@
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
-          <user value="root" />
-          <deprecated-pwd value="MTIzNA==" />
+          <user value="user" />
+          <deprecated-pwd value="MTIzNDU=" />
         </database>
         <properties>
           <auto-commit value="false" />
@@ -512,5 +521,8 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
   </component>
 </project>
