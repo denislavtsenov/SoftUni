@@ -1,5 +1,8 @@
 package org.softuni.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -7,6 +10,8 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "sales")
 public class Sale extends BaseEntity {
 

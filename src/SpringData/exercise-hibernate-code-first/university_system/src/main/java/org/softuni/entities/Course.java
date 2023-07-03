@@ -1,10 +1,15 @@
 package org.softuni.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "courses")
 public class Course extends BaseEntity {
 

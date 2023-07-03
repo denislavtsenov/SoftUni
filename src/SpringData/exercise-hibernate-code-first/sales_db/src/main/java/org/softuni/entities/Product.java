@@ -1,5 +1,8 @@
 package org.softuni.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -8,6 +11,8 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "products")
 public class Product extends BaseEntity {
 
