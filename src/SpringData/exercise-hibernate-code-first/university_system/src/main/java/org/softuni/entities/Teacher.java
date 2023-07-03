@@ -1,9 +1,6 @@
 package org.softuni.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -17,6 +14,6 @@ public class Teacher extends Person {
     @Column(name = "salary_per_hour")
     private BigDecimal salaryPerHour;
 
-    @OneToMany
+    @OneToMany(mappedBy = "teacher")
     private Set<Course> courses;
 }

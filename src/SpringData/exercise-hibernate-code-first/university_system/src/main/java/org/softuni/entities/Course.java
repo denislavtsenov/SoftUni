@@ -22,9 +22,9 @@ public class Course extends BaseEntity {
 
     private Integer credits;
 
-    @OneToMany
+    @ManyToMany
     private Set<Student> students;
 
-    @OneToOne
+    @ManyToOne
     private Teacher teacher;
 }

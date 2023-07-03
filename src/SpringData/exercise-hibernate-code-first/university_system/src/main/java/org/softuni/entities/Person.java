@@ -1,6 +1,7 @@
 package org.softuni.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
