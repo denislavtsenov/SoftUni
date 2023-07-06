@@ -1,29 +1,60 @@
 package org.softuni.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
-@Table(name = "sales")
-public class Sale extends BaseEntity {
+@Table(name = "sale")
+public class Sale extends BaseEntity{
 
-    @Column(name = "product_id")
-    private int productId;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    @Column(name = "customer_id")
-    private int customerId;
+    @ManyToOne
+    @JoinColumn(name = "store_location_id")
+    private StoreLocation storeLocation;
 
-    @Column(name = "store_location_id")
-    private int storeLocationId;
-
-    @Column(name = "date")
     private Date date;
+
+    public Sale() {
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public StoreLocation getStoreLocation() {
+        return storeLocation;
+    }
+
+    public void setStoreLocation(StoreLocation storeLocation) {
+        this.storeLocation = storeLocation;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

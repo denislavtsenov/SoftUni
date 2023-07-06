@@ -1,6 +1,7 @@
 package org.softuni.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "wizard_deposits")
 public class WizardDeposit extends BaseEntity {
 

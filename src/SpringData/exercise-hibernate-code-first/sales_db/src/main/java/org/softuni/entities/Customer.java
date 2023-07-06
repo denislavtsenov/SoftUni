@@ -1,29 +1,60 @@
 package org.softuni.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
 @Table(name = "customers")
 public class Customer extends BaseEntity {
 
-    @Column(name = "names")
     private String name;
-
-    @Column(name = "emails")
     private String email;
-
-    @Column(name = "credit_card_number")
     private String creditCardNumber;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer")
     private Set<Sale> sales;
+
+    public Customer() {
+        this.sales = new HashSet<>();
+    }
+
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Column(name = "credit_card_number")
+    public String getCreditCardNumber() {
+        return creditCardNumber;
+    }
+
+    public void setCreditCardNumber(String creditCardNumber) {
+        this.creditCardNumber = creditCardNumber;
+    }
+
+
+    public Set<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(Set<Sale> sales) {
+        this.sales = sales;
+    }
 }

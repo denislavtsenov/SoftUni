@@ -1,6 +1,7 @@
 package org.softuni.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,13 +11,14 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "courses")
 public class Course extends BaseEntity {
 
-    @Column(name = "names")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "descriptions")
+    @Column(name = "description")
     private String description;
 
     @Column(name = "start_date")
@@ -25,6 +27,7 @@ public class Course extends BaseEntity {
     @Column(name = "end_date")
     private Date endDate;
 
+    @Column(name = "credits")
     private Integer credits;
 
     @ManyToMany
