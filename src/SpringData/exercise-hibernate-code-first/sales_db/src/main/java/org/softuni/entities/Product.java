@@ -1,5 +1,8 @@
 package org.softuni.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -10,6 +13,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "products")
+@Getter
+@Setter
 public class Product extends BaseEntity {
 
     private String name;
@@ -23,40 +28,5 @@ public class Product extends BaseEntity {
         this.sales = new HashSet<>();
     }
 
-    @Column(name = "name")
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Column(name = "quantity")
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    @Column(name = "price")
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-
-    public Set<Sale> getSales() {
-        return sales;
-    }
-
-    public void setSales(Set<Sale> sales) {
-        this.sales = sales;
-    }
 }
 

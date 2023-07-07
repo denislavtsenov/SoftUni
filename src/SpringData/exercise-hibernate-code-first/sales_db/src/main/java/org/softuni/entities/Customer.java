@@ -1,5 +1,8 @@
 package org.softuni.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -9,6 +12,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "customers")
+@Getter
+@Setter
 public class Customer extends BaseEntity {
 
     private String name;
@@ -18,43 +23,4 @@ public class Customer extends BaseEntity {
     @OneToMany(mappedBy = "customer")
     private Set<Sale> sales;
 
-    public Customer() {
-        this.sales = new HashSet<>();
-    }
-
-    @Column(name = "name")
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Column(name = "email")
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Column(name = "credit_card_number")
-    public String getCreditCardNumber() {
-        return creditCardNumber;
-    }
-
-    public void setCreditCardNumber(String creditCardNumber) {
-        this.creditCardNumber = creditCardNumber;
-    }
-
-
-    public Set<Sale> getSales() {
-        return sales;
-    }
-
-    public void setSales(Set<Sale> sales) {
-        this.sales = sales;
-    }
 }

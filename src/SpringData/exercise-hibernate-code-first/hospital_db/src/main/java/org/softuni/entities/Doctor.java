@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Set;
@@ -16,16 +17,16 @@ import java.util.Set;
 @Table(name = "doctors")
 public class Doctor extends BaseEntity {
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany
     private Set<Patient> patients;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany
     private Set<Visitation> visitations;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany
     private Set<Diagnose> diagnoses;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany
     private Set<Medicament> medicaments;
 
 }

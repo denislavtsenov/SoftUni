@@ -1,5 +1,8 @@
 package org.softuni.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -8,6 +11,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "store_location")
 public class StoreLocation extends BaseEntity {
 
@@ -20,21 +25,4 @@ public class StoreLocation extends BaseEntity {
         this.sales = new HashSet<>();
     }
 
-    @Column(name = "location_name")
-    public String getLocationName() {
-        return locationName;
-    }
-
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
-    }
-
-
-    public Set<Sale> getSales() {
-        return sales;
-    }
-
-    public void setSales(Set<Sale> sales) {
-        this.sales = sales;
-    }
 }

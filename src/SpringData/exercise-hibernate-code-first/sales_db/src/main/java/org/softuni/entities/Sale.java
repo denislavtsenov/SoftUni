@@ -1,5 +1,9 @@
 package org.softuni.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -7,8 +11,11 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "sale")
-public class Sale extends BaseEntity{
+public class Sale extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -23,38 +30,4 @@ public class Sale extends BaseEntity{
 
     private Date date;
 
-    public Sale() {
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public StoreLocation getStoreLocation() {
-        return storeLocation;
-    }
-
-    public void setStoreLocation(StoreLocation storeLocation) {
-        this.storeLocation = storeLocation;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }
