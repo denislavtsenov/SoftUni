@@ -22,4 +22,8 @@ public class Category extends BaseEntity {
 
     @ManyToMany(mappedBy = "categories")
     private Set<Book> books;
+
+    public Category(String name) {
+        this.name = name;
+    }
 }
