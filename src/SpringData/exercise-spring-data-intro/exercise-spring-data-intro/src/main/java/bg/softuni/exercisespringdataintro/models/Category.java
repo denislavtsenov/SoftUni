@@ -10,9 +10,6 @@ import lombok.Setter;
 
 import java.util.Set;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "categories")
 public class Category extends BaseEntity {
@@ -25,5 +22,25 @@ public class Category extends BaseEntity {
 
     public Category(String name) {
         this.name = name;
+    }
+
+    public Category() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }

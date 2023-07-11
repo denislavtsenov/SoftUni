@@ -1,4 +1,4 @@
-package bg.softuni.exercisespringdataintro.repositories;
+package bg.softuni.exercisespringdataintro.repository;
 
 import bg.softuni.exercisespringdataintro.models.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
