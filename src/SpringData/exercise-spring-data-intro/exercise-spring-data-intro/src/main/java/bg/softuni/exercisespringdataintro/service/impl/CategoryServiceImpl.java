@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Set;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -40,5 +41,10 @@ public class CategoryServiceImpl implements CategoryService {
                     categoryRepository.save(category);
 
                 });
+    }
+
+    @Override
+    public Set<Category> getRandomCategories() {
+        return null;
     }
 }

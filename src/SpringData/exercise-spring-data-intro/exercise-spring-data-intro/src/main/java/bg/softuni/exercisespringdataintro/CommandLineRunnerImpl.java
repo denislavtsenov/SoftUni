@@ -23,8 +23,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        categoryService.seedCategories();
-//        authorService.seedAuthors();
+        categoryService.seedCategories();
+        authorService.seedAuthors();
 
         bookService.seedBooks();
 

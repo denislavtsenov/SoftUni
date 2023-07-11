@@ -31,7 +31,7 @@ public class Book extends BaseEntity {
     private Integer copies;
 
     @Column(name = "release_date")
-    private Date releaseDate;
+    private LocalDate releaseDate;
 
     @Enumerated
     private AgeRestriction ageRestriction;
@@ -47,6 +47,17 @@ public class Book extends BaseEntity {
 
     public Book(String title) {
         this.title = title;
+    }
+
+    public Book(String title, EditionType editionType, BigDecimal price, LocalDate releaseDate, AgeRestriction ageRestriction, Author author, Set<Category> categories, int copies) {
+        this.title = title;
+        this.editionType = editionType;
+        this.price = price;
+        this.releaseDate = releaseDate;
+        this.ageRestriction = ageRestriction;
+        this.author = author;
+        this.categories = categories;
+        this.copies = copies;
     }
 
     public String getTitle() {
@@ -89,11 +100,11 @@ public class Book extends BaseEntity {
         this.copies = copies;
     }
 
-    public Date getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 

@@ -43,4 +43,9 @@ public class AuthorServiceImpl implements AuthorService {
                     authorRepository.save(author);
                 });
     }
+
+    @Override
+    public Author getRandomAuthor() {
+        return null;
+    }
 }

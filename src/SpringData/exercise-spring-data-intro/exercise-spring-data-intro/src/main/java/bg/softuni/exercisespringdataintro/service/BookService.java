@@ -1,5 +1,7 @@
 package bg.softuni.exercisespringdataintro.service;
 
+import java.io.IOException;
+
 public interface BookService {
-    void seedBooks();
+    void seedBooks() throws IOException;
 }
