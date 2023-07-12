@@ -10,8 +10,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -57,4 +60,15 @@ public class AuthorServiceImpl implements AuthorService {
 
         throw new RuntimeException();
     }
+
+    @Override
+    public List<String> findAllAuthorsOrderedByBooksCountDesc() {
+        return authorRepository
+                .findAllByBooksSizeOrderDesc()
+                .stream()
+                .map(author -> String.format("%s %s %d",
+                        author.getFirstName(), author.getLastName(), author.getBooks().size()))
+                .collect(Collectors.toList());
+    }
+
 }

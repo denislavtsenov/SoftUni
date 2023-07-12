@@ -82,6 +82,16 @@ public class BookServiceImpl implements BookService {
 
     }
 
+    @Override
+    public List<Book> findAllBooksAfterYear(int year) {
+        return bookRepository.findAllByReleaseDateAfter(LocalDate.of(year, 1, 1));
+    }
+
+    @Override
+    public List<Book> findAllAuthorsNamesWithBooksBeforeYear(int year) {
+        return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1));
+    }
+
     private boolean isBookExist(String title) {
         boolean isBookExist = false;
         List<Book> bookList = bookRepository.findAll();
