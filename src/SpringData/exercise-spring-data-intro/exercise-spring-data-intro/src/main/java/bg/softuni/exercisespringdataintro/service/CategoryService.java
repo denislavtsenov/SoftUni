@@ -8,5 +8,7 @@ import java.util.Set;
 public interface CategoryService {
     void seedCategories() throws IOException;
 
+    Category getRandomCategory();
+
     Set<Category> getRandomCategories();
 }

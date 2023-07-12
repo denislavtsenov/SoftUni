@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
+import java.util.NoSuchElementException;
+import java.util.Random;
 import java.util.Set;
 
 @Service
@@ -44,7 +47,25 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Category getRandomCategory() {
+        final long count = this.categoryRepository.count();
+
+        if (count != 0) {
+            long randomId = new Random().nextLong(1L, count) + 1L;
+            return this.categoryRepository.findById(randomId).orElseThrow(NoSuchElementException::new);
+        }
+
+        throw new RuntimeException();
+    }
+
+    @Override
     public Set<Category> getRandomCategories() {
-        return null;
+        Set<Category> categories = new HashSet<>();
+
+        for (int i = 0; i < 1; i++) {
+            categories.add(getRandomCategory());
+        }
+
+        return categories;
     }
 }

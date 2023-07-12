@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.NoSuchElementException;
+import java.util.Random;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -46,6 +48,13 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Author getRandomAuthor() {
-        return null;
+        final long count = this.authorRepository.count();
+
+        if (count != 0) {
+            long randomId = new Random().nextLong(1L, count) + 1L;
+            return this.authorRepository.findById(randomId).orElseThrow(NoSuchElementException::new);
+        }
+
+        throw new RuntimeException();
     }
 }
