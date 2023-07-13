@@ -1,6 +1,7 @@
 package bg.softuni.exercisespringdataintro.service.impl;
 
 import bg.softuni.exercisespringdataintro.models.Author;
+import bg.softuni.exercisespringdataintro.models.Book;
 import bg.softuni.exercisespringdataintro.repository.AuthorRepository;
 import bg.softuni.exercisespringdataintro.service.AuthorService;
 import org.springframework.core.io.ClassPathResource;
@@ -10,10 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -71,4 +72,13 @@ public class AuthorServiceImpl implements AuthorService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<String> findAllAuthorsNamesWithFirstNamesEndingWith(String endingString) {
+        return authorRepository
+                .findAllByFirstNameEndingWith(endingString)
+                .stream()
+                .map(author -> String.format("%s %s",
+                        author.getFirstName(), author.getLastName()))
+                .collect(Collectors.toList());
+    }
 }
