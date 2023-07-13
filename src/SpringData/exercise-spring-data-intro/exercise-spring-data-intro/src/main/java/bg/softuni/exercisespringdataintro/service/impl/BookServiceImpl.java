@@ -92,6 +92,19 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1));
     }
 
+    @Override
+    public List<String> findAllBooksByAuthorNameOrderByReleaseDateDescTitleAsc(String authorName) {
+
+        String firstName = authorName.split(" ")[0];
+        String lastName = authorName.split(" ")[1];
+
+       return bookRepository.findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitleAsc(firstName, lastName)
+                .stream()
+                .map(book -> String.format("%s %s %s",
+                        book.getTitle(), book.getReleaseDate(), book.getCopies()))
+                .collect(Collectors.toList());
+    }
+
     private boolean isBookExist(String title) {
         boolean isBookExist = false;
         List<Book> bookList = bookRepository.findAll();

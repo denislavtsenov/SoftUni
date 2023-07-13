@@ -26,7 +26,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        seedData();
+        seedData();
 
 //      printAllBooksAfterYear(2000);
 
@@ -34,7 +34,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
 //      printAllAuthorsOrderedByBooksCountDesc();
 
+//      printAllBooksFromAuthorOrderByReleaseDateDescAndBookTitleAsc("George Powell");
 
+    }
+
+    private void printAllBooksFromAuthorOrderByReleaseDateDescAndBookTitleAsc(String authorName) {
+        bookService.findAllBooksByAuthorNameOrderByReleaseDateDescTitleAsc(authorName)
+                .forEach(System.out::println);
     }
 
     private void printAllAuthorsOrderedByBooksCountDesc() {
