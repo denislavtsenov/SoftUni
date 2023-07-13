@@ -176,6 +176,14 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllByTitleLengthGreaterThan(number).stream().count();
     }
 
+    @Override
+    public String findBookByTitle(String title) {
+        Book book = bookRepository.findBookByTitle(title);
+
+        return String.format("%s %s %s %.2f",
+                book.getTitle(), book.getEditionType(), book.getAgeRestriction(), book.getPrice());
+    }
+
     private boolean isBookExist(String title) {
         boolean isBookExist = false;
         List<Book> bookList = bookRepository.findAll();

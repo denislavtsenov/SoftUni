@@ -11,10 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -79,6 +76,21 @@ public class AuthorServiceImpl implements AuthorService {
                 .stream()
                 .map(author -> String.format("%s %s",
                         author.getFirstName(), author.getLastName()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllAuthorsAndTheirTotalCopies() {
+        return authorRepository
+                .findAll()
+                .stream()
+                .map(author -> String.format("%s %s - %d",
+                        author.getFirstName(), author.getLastName(),
+                        author.getBooks()
+                                .stream()
+                                .map(Book::getCopies)
+                                .reduce(Integer::sum)
+                                .orElse(0)))
                 .collect(Collectors.toList());
     }
 }

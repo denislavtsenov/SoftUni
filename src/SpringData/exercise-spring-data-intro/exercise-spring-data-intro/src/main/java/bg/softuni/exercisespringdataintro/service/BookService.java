@@ -30,4 +30,6 @@ public interface BookService {
     List<String> findAllBooksWithAuthorLastNameStartsWithGivenString(String inputString);
 
     Long findAllBooksTitlesWithLengthMoreThanGivenNumber(int number);
+
+    String findBookByTitle(String title);
 }

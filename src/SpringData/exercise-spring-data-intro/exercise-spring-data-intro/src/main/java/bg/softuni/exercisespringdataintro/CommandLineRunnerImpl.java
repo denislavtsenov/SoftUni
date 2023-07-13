@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.Scanner;
 
 @Component
@@ -102,8 +103,25 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                 int number = Integer.parseInt(scanner.nextLine());
 
                 printAllBooksTitlesWhichHaveLengthMoreThanGivenNumber(number);
+            case 10:
+                printAllAuthorAndTheirCopiesOrderedByCountOfBooksDesc();
+            case 11:
+                System.out.println("Write title and get info:");
+                String title = scanner.nextLine();
 
+                printInfoForBookByGivenTitle(title);
         }
+    }
+
+    private void printInfoForBookByGivenTitle(String title) {
+        String bookInfo = bookService.findBookByTitle(title);
+        System.out.println(bookInfo);
+    }
+
+
+    private void printAllAuthorAndTheirCopiesOrderedByCountOfBooksDesc() {
+        authorService.findAllAuthorsAndTheirTotalCopies()
+                .forEach(System.out::println);
     }
 
     private void printAllBooksTitlesWhichHaveLengthMoreThanGivenNumber(int number) {
