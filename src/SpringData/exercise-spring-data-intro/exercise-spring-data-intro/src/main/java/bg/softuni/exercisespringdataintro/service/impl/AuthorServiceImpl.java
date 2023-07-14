@@ -1,5 +1,6 @@
 package bg.softuni.exercisespringdataintro.service.impl;
 
+import bg.softuni.exercisespringdataintro.CommandLineRunnerImpl;
 import bg.softuni.exercisespringdataintro.models.Author;
 import bg.softuni.exercisespringdataintro.models.Book;
 import bg.softuni.exercisespringdataintro.repository.AuthorRepository;
@@ -94,3 +95,4 @@ public class AuthorServiceImpl implements AuthorService {
                 .collect(Collectors.toList());
     }
 }
+

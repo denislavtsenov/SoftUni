@@ -103,13 +103,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                 int number = Integer.parseInt(scanner.nextLine());
 
                 printAllBooksTitlesWhichHaveLengthMoreThanGivenNumber(number);
+                break;
             case 10:
                 printAllAuthorAndTheirCopiesOrderedByCountOfBooksDesc();
+                break;
             case 11:
                 System.out.println("Write title and get info:");
                 String title = scanner.nextLine();
 
                 printInfoForBookByGivenTitle(title);
+                break;
         }
     }
 
