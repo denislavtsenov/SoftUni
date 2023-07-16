@@ -20,6 +20,9 @@ public class User extends BaseEntity {
     @Column(name = "full_name")
     private String fullName;
 
+    @Column(name = "is_admin")
+    private Boolean isAdmin;
+
     @ManyToMany
     Set<Game> games;
 

@@ -21,7 +21,7 @@ public class Game extends BaseEntity {
     private String imageThumbnail;
 
     @Column(name = "size")
-    private Integer size;
+    private Double size;
 
     @Column(name = "price")
     private BigDecimal price;
@@ -59,11 +59,11 @@ public class Game extends BaseEntity {
         this.imageThumbnail = imageThumbnail;
     }
 
-    public Integer getSize() {
+    public Double getSize() {
         return size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(Double size) {
         this.size = size;
     }
 
