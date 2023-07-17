@@ -1,6 +1,8 @@
 package bg.softuni.springdatadto.service.impl;
 
 import bg.softuni.springdatadto.model.dto.GameAddDto;
+import bg.softuni.springdatadto.model.dto.GameViewDetailDto;
+import bg.softuni.springdatadto.model.dto.GameViewPriceTitleDto;
 import bg.softuni.springdatadto.model.entity.Game;
 import bg.softuni.springdatadto.repository.GameRepository;
 import bg.softuni.springdatadto.service.GameService;
@@ -10,7 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Optional;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -65,5 +67,54 @@ public class GameServiceImpl implements GameService {
         } else {
             System.out.println("Game with this ID does not exist");
         }
+    }
+
+    @Override
+    public void deleteGame(Long id) {
+
+        Game game = gameRepository.findById(id)
+                .orElse(null);
+
+        if (game != null) {
+            System.out.println("Deleted " + game.getTitle());
+            gameRepository.delete(game);
+        } else {
+            System.out.println("Game with this ID does not exist");
+        }
+    }
+
+    @Override
+    public void printPriceAndTitleAllGames(GameViewPriceTitleDto gameViewPriceTitleDto) {
+
+        List<Game> games = gameRepository.findAll();
+
+        if (games.isEmpty()) {
+            System.out.println("You don't have any games");
+            return;
+        }
+
+        games
+                .forEach(game -> {
+                    GameViewPriceTitleDto gameDto = modelMapper.map(game, GameViewPriceTitleDto.class);
+                    System.out.printf("%s %.2f%n", gameDto.getTitle(), gameDto.getPrice());
+                });
+    }
+
+    @Override
+    public void printGameDetailsByTitle(GameViewDetailDto gameViewDetailDto) {
+
+        Game game = gameRepository.findByTitle(gameViewDetailDto.getTitle());
+
+        if (game == null) {
+            System.out.println("Game with this title does not exist");
+            return;
+        }
+
+        GameViewDetailDto gameDto = modelMapper.map(game, GameViewDetailDto.class);
+
+        System.out.println("Title: " + gameDto.getTitle());
+        System.out.println("Price: " + gameDto.getPrice());
+        System.out.println("Description: " + gameDto.getDescription());
+        System.out.println("Release date: " + gameDto.getReleaseDate());
     }
 }

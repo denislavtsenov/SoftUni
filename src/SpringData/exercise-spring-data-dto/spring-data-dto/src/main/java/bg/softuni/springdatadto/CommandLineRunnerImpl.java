@@ -1,8 +1,6 @@
 package bg.softuni.springdatadto;
 
-import bg.softuni.springdatadto.model.dto.GameAddDto;
-import bg.softuni.springdatadto.model.dto.UserLoginDto;
-import bg.softuni.springdatadto.model.dto.UserRegisterDto;
+import bg.softuni.springdatadto.model.dto.*;
 import bg.softuni.springdatadto.service.GameService;
 import bg.softuni.springdatadto.service.UserService;
 import org.springframework.boot.CommandLineRunner;
@@ -36,8 +34,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             String command = commands[0];
             String email;
             String password;
+            Long id;
+            String title;
 
             switch (command) {
+
                 case "RegisterUser":
                     email = commands[1];
                     password = commands[2];
@@ -48,6 +49,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                             email, password, confirmPassword, fullName
                     ));
                     break;
+
                 case "LoginUser":
                     email = commands[1];
                     password = commands[2];
@@ -55,11 +57,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                             email, password
                     ));
                     break;
+
                 case "Logout":
                     userService.logout();
                     break;
+
                 case "AddGame":
-                    String title = commands[1];
+                    title = commands[1];
                     BigDecimal price = new BigDecimal(commands[2]);
                     Double size = Double.parseDouble(commands[3]);
                     String trailer = commands[4];
@@ -69,13 +73,29 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
                     gameService.addGame(new GameAddDto(title, price, size, trailer, thumbnailUrl,
                             description, releaseDate));
+                    break;
 
                 case "EditGame":
-                    Long id = Long.parseLong(commands[1]);
+                    id = Long.parseLong(commands[1]);
                     BigDecimal newPrice = new BigDecimal(commands[2].split("=")[1]);
                     Double newSize = Double.parseDouble(commands[3].split("=")[1]);
 
                     gameService.editGame(id, newPrice, newSize);
+                    break;
+
+                case "DeleteGame":
+                    id = Long.parseLong(commands[1]);
+
+                    gameService.deleteGame(id);
+                    break;
+
+                case "AllGames":
+                    gameService.printPriceAndTitleAllGames(new GameViewPriceTitleDto());
+                    break;
+
+                case "DetailGame":
+                  title = commands[1];
+                    gameService.printGameDetailsByTitle(new GameViewDetailDto(title));
             }
         }
     }
