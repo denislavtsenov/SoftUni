@@ -1,5 +1,6 @@
 package bg.softuni.jsonprocessing.model.dto;
 
+import bg.softuni.jsonprocessing.model.entity.User;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -9,6 +10,7 @@ public class UserSeedDto {
     @Size(min = 3)
     private String lastName;
     private Integer age;
+    private User friend;
 
     public UserSeedDto() {
     }
@@ -35,5 +37,13 @@ public class UserSeedDto {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public User getFriend() {
+        return friend;
+    }
+
+    public void setFriend(User friend) {
+        this.friend = friend;
     }
 }

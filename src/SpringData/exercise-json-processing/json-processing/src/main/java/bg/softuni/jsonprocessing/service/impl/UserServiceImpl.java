@@ -7,8 +7,10 @@ import bg.softuni.jsonprocessing.service.UserService;
 import bg.softuni.jsonprocessing.utils.ValidationUtil;
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,9 +21,9 @@ import java.util.concurrent.ThreadLocalRandom;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private static final String USERS_PATH_FILE = "src/main/resources/files/users.json";
+    private static final String USERS_PATH_FILE = "files/users.json";
 
-    private  final UserRepository userRepository;
+    private final UserRepository userRepository;
     private final Gson gson;
     private final ModelMapper modelMapper;
     private final ValidationUtil validationUtil;
@@ -40,13 +42,22 @@ public class UserServiceImpl implements UserService {
             return;
         }
 
-       String fileContent = Files
-                .readString(Path.of(USERS_PATH_FILE));
+        File resource = new ClassPathResource(USERS_PATH_FILE).getFile();
 
-        Arrays.stream(gson.fromJson(fileContent, UserSeedDto[].class))
-                .filter(validationUtil::isValid)
-                .map(userSeedDto -> modelMapper.map(userSeedDto, User.class))
-                .forEach(userRepository::save);
+        String fileContent = Files
+                .readString(Path.of(resource.toURI()));
+
+        UserSeedDto[] userSeedDtos = gson.fromJson(fileContent, UserSeedDto[].class);
+
+        for (UserSeedDto userSeedDto : userSeedDtos) {
+            userSeedDto.setFriend(getRandomUser());
+
+            if (validationUtil.isValid(userSeedDto)) {
+                User user = modelMapper.map(userSeedDto, User.class);
+                userRepository.save(user);
+            }
+        }
+
     }
 
     @Override

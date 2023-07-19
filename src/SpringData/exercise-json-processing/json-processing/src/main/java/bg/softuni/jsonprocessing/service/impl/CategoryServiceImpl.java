@@ -7,8 +7,10 @@ import bg.softuni.jsonprocessing.service.CategoryService;
 import bg.softuni.jsonprocessing.utils.ValidationUtil;
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,7 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private static final String CATEGORIES_FILE_PATH = "src/main/resources/files/categories.json";
+    private static final String CATEGORIES_FILE_PATH = "files/categories.json";
 
     private final Gson gson;
     private final ValidationUtil validationUtil;
@@ -41,8 +43,10 @@ public class CategoryServiceImpl implements CategoryService {
             return;
         }
 
+        File resource = new ClassPathResource(CATEGORIES_FILE_PATH).getFile();
+
         String fileContent = Files
-                .readString(Path.of(CATEGORIES_FILE_PATH));
+                .readString(Path.of(resource.toURI()));
 
         CategorySeedDto[] categorySeedDtos = gson.fromJson(fileContent, CategorySeedDto[].class);
 
