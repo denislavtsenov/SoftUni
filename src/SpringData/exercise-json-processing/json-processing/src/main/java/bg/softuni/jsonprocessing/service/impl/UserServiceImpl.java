@@ -14,8 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -50,14 +48,12 @@ public class UserServiceImpl implements UserService {
         UserSeedDto[] userSeedDtos = gson.fromJson(fileContent, UserSeedDto[].class);
 
         for (UserSeedDto userSeedDto : userSeedDtos) {
-            userSeedDto.setFriend(getRandomUser());
 
             if (validationUtil.isValid(userSeedDto)) {
                 User user = modelMapper.map(userSeedDto, User.class);
                 userRepository.save(user);
             }
         }
-
     }
 
     @Override
