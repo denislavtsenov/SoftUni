@@ -1,6 +1,7 @@
 package bg.softuni.jsonprocessing.service.impl;
 
 import bg.softuni.jsonprocessing.model.dto.UserSeedDto;
+import bg.softuni.jsonprocessing.model.dto.UserSoldDto;
 import bg.softuni.jsonprocessing.model.entity.User;
 import bg.softuni.jsonprocessing.repository.UserRepository;
 import bg.softuni.jsonprocessing.service.UserService;
@@ -14,7 +15,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -65,5 +68,12 @@ public class UserServiceImpl implements UserService {
 
     }
 
-
+    @Override
+    public List<UserSoldDto> findAllUsersWithAtLeastOneSoldProduct() {
+        return userRepository
+                .findAllBySoldProductsWithBuyerOrderByLastNameThenFirstName()
+                .stream()
+                .map(user -> modelMapper.map(user, UserSoldDto.class))
+                .collect(Collectors.toList());
+    }
 }

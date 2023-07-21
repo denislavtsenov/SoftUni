@@ -1,6 +1,8 @@
 package bg.softuni.jsonprocessing;
 
+import bg.softuni.jsonprocessing.model.dto.AllCategoriesDto;
 import bg.softuni.jsonprocessing.model.dto.ProductViewNamePriceSellerDto;
+import bg.softuni.jsonprocessing.model.dto.UserSoldDto;
 import bg.softuni.jsonprocessing.service.CategoryService;
 import bg.softuni.jsonprocessing.service.ProductService;
 import bg.softuni.jsonprocessing.service.UserService;
@@ -14,7 +16,6 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     private final static String OUTPUT_PATH = "src/main/resources/files/output/";
     private final static String PRODUCTS_IN_RANGE_FILE_NAME = "products-in-range.json";
+    private final static String SOLD_PRODUCTS_FILE_NAME = "sold-products.json";
+    private final static String ALL_CATEGORIES_FILE_NAME = "all-categories.json";
     private final UserService userService;
     private final ProductService productService;
     private final CategoryService categoryService;
@@ -48,8 +51,32 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 1:
                 productsInRange();
                 break;
+            case 2:
+                soldProducts();
+                break;
+            case 3:
+                categoriesByProductCount();
+                break;
         }
 
+    }
+
+    private void categoriesByProductCount() throws IOException {
+
+        List<AllCategoriesDto> allCategoriesDtos = categoryService
+                .findAllCategoriesOrderByNumberOfProducts();
+
+        String content = gson.toJson(allCategoriesDtos);
+
+        writeToFile(OUTPUT_PATH + ALL_CATEGORIES_FILE_NAME, content);
+    }
+
+    private void soldProducts() throws IOException {
+        List<UserSoldDto> userSoldDtos = userService.findAllUsersWithAtLeastOneSoldProduct();
+
+        String content = gson.toJson(userSoldDtos);
+
+        writeToFile(OUTPUT_PATH + SOLD_PRODUCTS_FILE_NAME, content);
     }
 
     private void productsInRange() throws IOException {

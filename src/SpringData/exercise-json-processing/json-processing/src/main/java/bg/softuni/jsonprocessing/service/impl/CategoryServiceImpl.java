@@ -1,7 +1,9 @@
 package bg.softuni.jsonprocessing.service.impl;
 
+import bg.softuni.jsonprocessing.model.dto.AllCategoriesDto;
 import bg.softuni.jsonprocessing.model.dto.CategorySeedDto;
 import bg.softuni.jsonprocessing.model.entity.Category;
+import bg.softuni.jsonprocessing.model.entity.Product;
 import bg.softuni.jsonprocessing.repository.CategoryRepository;
 import bg.softuni.jsonprocessing.service.CategoryService;
 import bg.softuni.jsonprocessing.utils.ValidationUtil;
@@ -12,12 +14,12 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -71,6 +73,52 @@ public class CategoryServiceImpl implements CategoryService {
         }
 
         return randomCategories;
+    }
+
+    @Override
+    public List<AllCategoriesDto> findAllCategoriesOrderByNumberOfProducts() {
+
+        return categoryRepository
+                .findAll()
+                .stream()
+                .map(category -> {
+
+                    AllCategoriesDto allCategoriesDto = modelMapper.map(category, AllCategoriesDto.class);
+                    allCategoriesDto.setProductsCount(category.getProducts().size());
+
+                    allCategoriesDto.setAveragePrice(BigDecimal.valueOf(getAveragePrice(category)));
+
+                    allCategoriesDto.setTotalRevenue(BigDecimal.valueOf(getTotalRevenue(category)));
+
+                    return allCategoriesDto;
+                })
+                .sorted((a, b) -> b.getProductsCount().compareTo(a.getProductsCount()))
+                .collect(Collectors.toList());
+    }
+
+    private static double getTotalRevenue(Category category) {
+        double totalSum = 0.0;
+
+        for (Product product : category.getProducts()) {
+            double sum = Double.parseDouble(String.valueOf(product.getPrice()));
+            totalSum += sum;
+        }
+
+        return totalSum;
+    }
+
+    private static double getAveragePrice(Category category) {
+        double totalPrice = 0.0;
+        int count = 0;
+        for (Product product : category.getProducts()) {
+            count++;
+            double price = Double.parseDouble(String.valueOf(product.getPrice()));
+            totalPrice += price;
+        }
+
+        double avgPrice = totalPrice / count;
+
+        return avgPrice;
     }
 
 

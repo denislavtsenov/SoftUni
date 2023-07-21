@@ -1,9 +1,6 @@
 package bg.softuni.jsonprocessing.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -22,6 +19,9 @@ public class User extends BaseEntity {
 
     @ManyToMany
     private Set<User> friends;
+
+    @OneToMany(mappedBy = "seller", fetch = FetchType.EAGER)
+    private Set<Product> soldProducts;
 
     public User() {
     }
@@ -48,5 +48,21 @@ public class User extends BaseEntity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Set<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<User> friends) {
+        this.friends = friends;
+    }
+
+    public Set<Product> getSoldProducts() {
+        return soldProducts;
+    }
+
+    public void setSoldProducts(Set<Product> soldProducts) {
+        this.soldProducts = soldProducts;
     }
 }
