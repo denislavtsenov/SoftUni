@@ -13,4 +13,5 @@ public interface UserService  {
 
 
     List<UserSoldDto> findAllUsersWithAtLeastOneSoldProduct();
+
 }

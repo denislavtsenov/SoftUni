@@ -58,7 +58,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                 categoriesByProductCount();
                 break;
         }
-
     }
 
     private void categoriesByProductCount() throws IOException {
