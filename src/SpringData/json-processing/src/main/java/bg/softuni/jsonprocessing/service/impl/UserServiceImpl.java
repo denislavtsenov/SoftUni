@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getRandomUser() {
         long randomId = ThreadLocalRandom
-                .current().nextLong(1, userRepository.count()) + 1;
+                .current().nextLong(1, userRepository.count() + 1);
 
         return userRepository.findById(randomId).orElse(null);
 
