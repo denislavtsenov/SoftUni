@@ -21,7 +21,7 @@ public class Product extends BaseEntity {
     @ManyToOne
     private User seller;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Category> categories;
 
     public Product() {

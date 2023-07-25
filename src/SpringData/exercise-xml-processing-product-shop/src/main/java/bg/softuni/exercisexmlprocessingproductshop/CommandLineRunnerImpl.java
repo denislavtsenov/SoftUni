@@ -3,6 +3,7 @@ package bg.softuni.exercisexmlprocessingproductshop;
 import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.CategoryViewRootDto;
 import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.ProductRootViewNamePriceSellerDto;
 import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.UserViewRootDto;
+import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.UserViewRootWithProductsDto;
 import bg.softuni.exercisexmlprocessingproductshop.service.CategoryService;
 import bg.softuni.exercisexmlprocessingproductshop.service.ProductService;
 import bg.softuni.exercisexmlprocessingproductshop.service.UserService;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -23,6 +23,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private static final String PRODUCTS_IN_RANGE_FILE_NAME = "products-in-range.xml";
     private static final String USERS_WITH_PRODUCTS_FILE_NAME = "users-with-products.xml";
     private static final String ALL_PRODUCTS_FILE_NAME = "all-products.xml";
+
+    private static final String USERS_WITH_SOLD_PRODUCTS_FILE_NAME = "users-with-sold-products.xml";
 
     private final UserService userService;
     private final ProductService productService;
@@ -45,7 +47,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         System.out.println("Choose exercise:");
         int numEx = Integer.parseInt(bufferedReader.readLine());
 
-        switch (numEx){
+        switch (numEx) {
             case 1:
                 productsInRange();
                 break;
@@ -55,8 +57,18 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 3:
                 categoriesByProductCount();
                 break;
+            case 4:
+                usersAndProducts();
+                break;
         }
 
+    }
+
+    private void usersAndProducts() throws JAXBException {
+        UserViewRootWithProductsDto userViewRootWithProductsDto = userService
+                .findAllUsersWIthAtLeastOneSoldProductSortByProductsCount();
+
+        xmlParser.writeToFile(OUTPUT_FILE_PATH + USERS_WITH_SOLD_PRODUCTS_FILE_NAME, userViewRootWithProductsDto);
     }
 
     private void categoriesByProductCount() throws JAXBException {
@@ -68,10 +80,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void soldProducts() throws JAXBException {
-       UserViewRootDto userViewRootDto = userService
-               .findAllUsersWithAtLeastOneSoldProduct();
+        UserViewRootDto userViewRootDto = userService
+                .findAllUsersWithAtLeastOneSoldProduct();
 
-       xmlParser.writeToFile(OUTPUT_FILE_PATH + USERS_WITH_PRODUCTS_FILE_NAME, userViewRootDto );
+        xmlParser.writeToFile(OUTPUT_FILE_PATH + USERS_WITH_PRODUCTS_FILE_NAME, userViewRootDto);
 
     }
 

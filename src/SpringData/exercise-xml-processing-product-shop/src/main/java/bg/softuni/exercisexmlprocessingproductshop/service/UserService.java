@@ -1,6 +1,7 @@
 package bg.softuni.exercisexmlprocessingproductshop.service;
 
 import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.UserViewRootDto;
+import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.UserViewRootWithProductsDto;
 import bg.softuni.exercisexmlprocessingproductshop.model.entity.User;
 import jakarta.xml.bind.JAXBException;
 
@@ -13,4 +14,6 @@ public interface UserService {
     User getRandomUser();
 
     UserViewRootDto findAllUsersWithAtLeastOneSoldProduct();
+
+    UserViewRootWithProductsDto findAllUsersWIthAtLeastOneSoldProductSortByProductsCount();
 }
