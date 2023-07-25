@@ -11,4 +11,5 @@ public interface ProductService {
     void seedProducts() throws JAXBException, FileNotFoundException;
 
     ProductRootViewNamePriceSellerDto findAllProductsInRangeWithoutBuyer();
+
 }

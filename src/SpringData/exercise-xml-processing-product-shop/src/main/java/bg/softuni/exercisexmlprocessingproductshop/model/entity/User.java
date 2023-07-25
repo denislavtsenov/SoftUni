@@ -20,6 +20,9 @@ public class User extends BaseEntity{
     @ManyToMany
     private Set<User> friends;
 
+    @OneToMany(mappedBy = "seller", fetch = FetchType.EAGER)
+    private Set<Product> products;
+
     public User() {
     }
 
@@ -53,5 +56,13 @@ public class User extends BaseEntity{
 
     public void setFriends(Set<User> friends) {
         this.friends = friends;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 }

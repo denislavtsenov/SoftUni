@@ -1,5 +1,7 @@
 package bg.softuni.exercisexmlprocessingproductshop.service.impl;
 
+import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.UserViewRootDto;
+import bg.softuni.exercisexmlprocessingproductshop.model.dto.exportDto.UserWithProductsDto;
 import bg.softuni.exercisexmlprocessingproductshop.model.dto.importDto.UserSeedRootDto;
 import bg.softuni.exercisexmlprocessingproductshop.model.entity.User;
 import bg.softuni.exercisexmlprocessingproductshop.repository.UserRepository;
@@ -11,7 +13,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -51,6 +55,20 @@ public class UserServiceImpl implements UserService {
                 .current().nextLong(1, userRepository.count()) + 1;
 
         return userRepository.findById(randomId).orElse(null);
+    }
+
+    @Override
+    public UserViewRootDto findAllUsersWithAtLeastOneSoldProduct() {
+
+        UserViewRootDto userViewRootDto = new UserViewRootDto();
+
+        userViewRootDto.setProducts(userRepository
+                .findAllByAtLeastOneSoldProductOrderByLastNameThenFirstName()
+                .stream()
+                .map(user -> modelMapper.map(user, UserWithProductsDto.class))
+                .collect(Collectors.toList()));
+
+        return userViewRootDto;
     }
 
 
