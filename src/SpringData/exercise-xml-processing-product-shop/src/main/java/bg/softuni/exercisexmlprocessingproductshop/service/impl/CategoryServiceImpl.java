@@ -27,7 +27,6 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
     private final XmlParser xmlParser;
-
     private final ValidationUtil validationUtil;
 
     public CategoryServiceImpl(CategoryRepository categoryRepository, ModelMapper modelMapper, XmlParser xmlParser, ValidationUtil validationUtil) {
