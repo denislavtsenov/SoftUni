@@ -5,6 +5,29 @@ import interfaces.Deque;
 import java.util.Iterator;
 
 public class ArrayDeque<E> implements Deque<E> {
+
+    private final int DEFAULT_CAPACITY = 7;
+    private int head;
+    private int tail;
+    private int size;
+    private Object[] elements;
+
+    public ArrayDeque() {
+        this.elements = new Object[DEFAULT_CAPACITY];
+        this.head = this.elements.length / 2;
+        this.tail = this.head;
+    }
+
+    private static class Node<E> {
+        private E element;
+        private Node<E> next;
+        private Node<E> prev;
+
+        public Node(E value) {
+            this.element = value;
+        }
+    }
+
     @Override
     public void add(E Element) {
 
@@ -87,12 +110,12 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public int capacity() {
-        return 0;
+        return this.elements.length;
     }
 
     @Override
@@ -102,7 +125,7 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.size == 0;
     }
 
     @Override
