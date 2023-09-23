@@ -2,6 +2,7 @@ package implementations;
 
 import interfaces.Deque;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class ArrayDeque<E> implements Deque<E> {
@@ -14,43 +15,56 @@ public class ArrayDeque<E> implements Deque<E> {
 
     public ArrayDeque() {
         this.elements = new Object[DEFAULT_CAPACITY];
-        this.head = this.elements.length / 2;
-        this.tail = this.head;
-    }
-
-    private static class Node<E> {
-        private E element;
-        private Node<E> next;
-        private Node<E> prev;
-
-        public Node(E value) {
-            this.element = value;
-        }
+        int middle = this.elements.length / 2;
+        this.head = this.tail = middle;
     }
 
     @Override
-    public void add(E Element) {
+    public void add(E element) {
 
+        if (this.size == 0) {
+            this.elements[tail] = element;
+        } else {
+
+            if (this.tail == this.elements.length - 1) {
+                this.elements = grow();
+            }
+
+            this.elements[++tail] = element;
+        }
+        size++;
     }
 
     @Override
     public void offer(E element) {
-
+        this.add(element);
     }
 
     @Override
     public void addFirst(E element) {
 
+        if (this.size == 0) {
+            this.elements[head] = element;
+        } else {
+        } else {
+
+            if (this.head == 0) {
+                this.elements = grow();
+            }
+            this.elements[--this.head] = element;
+        }
+
+        size++;
     }
 
     @Override
     public void addLast(E element) {
-
+        this.add(element);
     }
 
     @Override
     public void push(E element) {
-
+        this.addFirst(element);
     }
 
     @Override
@@ -65,23 +79,27 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public E peek() {
-        return null;
+        return (E) this.elements[this.head];
     }
 
     @Override
     public E poll() {
-        return null;
+        return this.removeFirst();
     }
 
     @Override
     public E pop() {
-        return null;
+        return this.removeLast();
     }
 
     @Override
     public E get(int index) {
-        return null;
+
+        isValid(index);
+
+        return (E) this.elements[index];
     }
+
 
     @Override
     public E get(Object object) {
@@ -90,6 +108,8 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public E remove(int index) {
+        isValid(index);
+
         return null;
     }
 
@@ -100,12 +120,20 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public E removeFirst() {
-        return null;
+
+        E elementToReturn = (E) this.elements[this.head];
+        this.head = this.head + 1;
+        this.size--;
+        return elementToReturn;
     }
 
     @Override
     public E removeLast() {
-        return null;
+        E elementToReturn = (E) this.elements[this.tail];
+
+        this.tail = this.tail - 1;
+        this.size--;
+        return elementToReturn;
     }
 
     @Override
@@ -120,7 +148,13 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public void trimToSize() {
+        Object[] newElements = new Object[size];
 
+        for (int i = 0; i < elements.length; i++) {
+            newElements[i] = this.elements[this.head++];
+        }
+
+        this.elements = newElements;
     }
 
     @Override
@@ -131,5 +165,31 @@ public class ArrayDeque<E> implements Deque<E> {
     @Override
     public Iterator<E> iterator() {
         return null;
+    }
+
+    private Object[] grow() {
+        int newCapacity = this.elements.length * 2 + 1;
+
+        Object[] newElements = new Object[newCapacity];
+
+        int middle = newCapacity / 2;
+        int begin = middle - this.size / 2;
+
+        int index = this.head;
+
+        for (int i = begin; index <= this.tail; i++) {
+            newElements[i] = this.elements[index++];
+        }
+
+        this.head = begin;
+        this.tail = this.head + this.size - 1;
+
+        return newElements;
+    }
+
+    private void isValid(int index) {
+        if (index < 0 || index >= this.elements.length) {
+            throw new IndexOutOfBoundsException();
+        }
     }
 }
