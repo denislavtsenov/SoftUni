@@ -38,7 +38,7 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
         if (this.head == null) {
             this.head = this.tail = newNode;
         } else {
-            this.tail.prev = this.tail;
+            newNode.prev = this.tail;
             this.tail.next = newNode;
             this.tail = newNode;
         }
@@ -73,14 +73,12 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
             return removeFirst();
         }
 
-        Node<E> current = this.head;
-        Node<E> prev = this.head;
-        while (current.next != null) {
-            prev = current;
-            current = current.next;
-        }
-        E element = current.element;
-        prev.next = null;
+        Node<E> toRemove = this.tail;
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+
+        E element = toRemove.element;
+
         this.size--;
 
         return element;
