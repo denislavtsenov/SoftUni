@@ -45,7 +45,7 @@ public class ArrayDeque<E> implements Deque<E> {
 
         if (this.size == 0) {
             this.elements[head] = element;
-        } else {
+
         } else {
 
             if (this.head == 0) {
@@ -69,17 +69,55 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public void insert(int index, E element) {
+        int realIndex = this.head + index;
+        this.isValid(realIndex);
+
+        if (realIndex - this.head < this.tail - realIndex) {
+            insertAndShiftLeft(realIndex - 1, element);
+        } else {
+            insertAndShiftRight(realIndex, element);
+        }
+    }
+
+    private void insertAndShiftRight(int index, E element) {
+
+        E lastElement = (E) this.elements[this.tail];
+
+        for (int i = this.tail; i > index; i++) {
+            this.elements[i] = this.elements[i - 1];
+        }
+
+        this.elements[index] = element;
+        this.addLast(lastElement);
+    }
+
+    private void insertAndShiftLeft(int index, E element) {
+
+        E firstElement = (E) this.elements[this.head];
+
+        for (int i = this.head; i < index; i++) {
+            this.elements[i] = this.elements[i + 1];
+        }
+
+        this.elements[index] = element;
+        this.addFirst(firstElement);
 
     }
 
     @Override
     public void set(int index, E element) {
+        int realIndex = this.head + index;
+        this.isValid(realIndex);
 
+        this.elements[realIndex] = element;
     }
 
     @Override
     public E peek() {
-        return (E) this.elements[this.head];
+        if (this.size != 0) {
+            return (E) this.elements[this.head];
+        }
+        return null;
     }
 
     @Override
@@ -89,51 +127,89 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public E pop() {
-        return this.removeLast();
+        return this.removeFirst();
     }
 
     @Override
     public E get(int index) {
 
-        isValid(index);
+        int realIndex = this.head + index;
+        isValid(realIndex);
 
-        return (E) this.elements[index];
+        return (E) this.elements[realIndex];
     }
 
 
     @Override
     public E get(Object object) {
+
+        if (isEmpty()) {
+            return null;
+        }
+
+        for (int i = this.head; i <= this.tail; i++) {
+            if (this.elements[i].equals(object)) {
+                return (E) this.elements[i];
+            }
+        }
         return null;
     }
 
     @Override
     public E remove(int index) {
-        isValid(index);
 
-        return null;
+        int realIndex = this.head + index;
+        this.isValid(realIndex);
+
+        return (E) this.elements[realIndex];
     }
 
     @Override
     public E remove(Object object) {
+
+        if (isEmpty()) {
+            return null;
+        }
+
+        for (int i = this.head; i <= this.tail; i++) {
+            if (this.elements[i].equals(object)) {
+                E element = (E) this.elements[i];
+
+                this.elements[i] = null;
+
+                for (int j = i; j < this.tail; j++) {
+                    this.elements[j] = this.elements[j + 1];
+                }
+                this.removeLast();
+
+                return element;
+            }
+        }
         return null;
     }
 
     @Override
     public E removeFirst() {
-
-        E elementToReturn = (E) this.elements[this.head];
-        this.head = this.head + 1;
-        this.size--;
-        return elementToReturn;
+        if (!isEmpty()) {
+            E elementToReturn = (E) this.elements[this.head];
+            this.elements[this.head] = null;
+            this.head++;
+            this.size--;
+            return elementToReturn;
+        }
+        return null;
     }
 
     @Override
     public E removeLast() {
-        E elementToReturn = (E) this.elements[this.tail];
-
-        this.tail = this.tail - 1;
-        this.size--;
-        return elementToReturn;
+        if (!isEmpty()) {
+            E elementToReturn = (E) this.elements[this.tail];
+            this.elements[this.tail] = null;
+            this.tail--;
+            this.size--;
+            return elementToReturn;
+        }
+        return null;
     }
 
     @Override
@@ -148,10 +224,12 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public void trimToSize() {
-        Object[] newElements = new Object[size];
+        Object[] newElements = new Object[this.size];
 
-        for (int i = 0; i < elements.length; i++) {
-            newElements[i] = this.elements[this.head++];
+        int index = 0;
+
+        for (int i = this.head; i <= this.tail; i++) {
+            newElements[index++] = this.elements[i];
         }
 
         this.elements = newElements;
@@ -164,7 +242,19 @@ public class ArrayDeque<E> implements Deque<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new Iterator<E>() {
+            private int index = head;
+
+            @Override
+            public boolean hasNext() {
+                return index <= tail;
+            }
+
+            @Override
+            public E next() {
+                return (E) elements[index++];
+            }
+        };
     }
 
     private Object[] grow() {
@@ -188,7 +278,7 @@ public class ArrayDeque<E> implements Deque<E> {
     }
 
     private void isValid(int index) {
-        if (index < 0 || index >= this.elements.length) {
+        if (this.tail < 0 || index > this.tail) {
             throw new IndexOutOfBoundsException();
         }
     }
