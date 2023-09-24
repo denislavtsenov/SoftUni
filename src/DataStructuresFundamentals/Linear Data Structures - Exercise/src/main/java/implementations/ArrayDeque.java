@@ -278,7 +278,7 @@ public class ArrayDeque<E> implements Deque<E> {
     }
 
     private void isValid(int index) {
-        if (this.tail < 0 || index > this.tail) {
+        if (this.head < 0 || index > this.tail) {
             throw new IndexOutOfBoundsException();
         }
     }
