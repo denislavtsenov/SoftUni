@@ -62,7 +62,20 @@ public class Tree<E> implements AbstractTree<E> {
 
     @Override
     public void addChild(E parentKey, Tree<E> child) {
+        Deque<Tree<E>> queue = new ArrayDeque<>();
+        queue.offer(this);
 
+        while (queue.size() > 0) {
+            Tree<E> current = queue.poll();
+
+            for (Tree<E> c : current.children) {
+                if (c.key.equals(parentKey)) {
+                    c.children.add(child);
+                    return;
+                }
+                queue.offer(c);
+            }
+        }
     }
 
     @Override
