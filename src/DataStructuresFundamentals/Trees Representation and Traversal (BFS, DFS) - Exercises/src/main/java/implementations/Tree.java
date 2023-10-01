@@ -10,16 +10,14 @@ public class Tree<E> implements AbstractTree<E> {
     private Tree<E> parent;
     private List<Tree<E>> children;
 
-    public Tree(E key, Tree<E>... children) {
+    public Tree(E key) {
         this.key = key;
         this.parent = null;
-        this.children = Arrays.asList(children);
-
-        for (Tree<E> child : children) {
-            child.setParent(this);
-            this.children.add(child);
-            child.parent = this;
-        }
+//        this.children.addAll(Arrays.asList(children));
+//
+//        for (Tree<E> child : children) {
+//            child.setParent(this);
+//        }
     }
 
 
@@ -30,18 +28,7 @@ public class Tree<E> implements AbstractTree<E> {
 
     @Override
     public void addChild(Tree<E> child) {
-        Deque<Tree<E>> queue = new ArrayDeque<>();
-        queue.offer(this);
-
-        while (queue.size() > 0) {
-            Tree<E> current = queue.poll();
-
-            for (Tree<E> c : current.children) {
-                c.children.add(child);
-                queue.offer(c);
-            }
-
-        }
+        this.children.add(child);
     }
 
     @Override
