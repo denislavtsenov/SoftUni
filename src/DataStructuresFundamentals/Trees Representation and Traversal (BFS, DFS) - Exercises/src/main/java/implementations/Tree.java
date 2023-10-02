@@ -13,11 +13,6 @@ public class Tree<E> implements AbstractTree<E> {
     public Tree(E key) {
         this.key = key;
         this.children = new ArrayList<>();
-//        this.children.addAll(Arrays.asList(children));
-//
-//        for (Tree<E> child : children) {
-//            child.setParent(this);
-//        }
     }
 
 
@@ -43,11 +38,40 @@ public class Tree<E> implements AbstractTree<E> {
 
     @Override
     public String getAsString() {
-        return null;
+        StringBuilder builder = new StringBuilder();
+
+        traverseTreeWithRecurrence(builder, 0, this);
+
+
+        return builder.toString().trim();
+
+    }
+
+    private void traverseTreeWithRecurrence(StringBuilder builder, int indent, Tree<E> tree) {
+
+        builder
+                .append(this.getPadding(indent))
+                .append(tree.getKey())
+                .append(System.lineSeparator());
+
+        for (Tree<E> child : tree.children) {
+            traverseTreeWithRecurrence(builder, indent + 2, child);
+        }
+    }
+
+    private String getPadding(int size) {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < size; i++) {
+            builder.append(" ");
+        }
+
+        return builder.toString();
     }
 
     @Override
     public List<E> getLeafKeys() {
+
         return null;
     }
 
