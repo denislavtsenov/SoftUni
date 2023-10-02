@@ -49,19 +49,28 @@ public class Tree<E> implements AbstractTree<E> {
     public List<E> getLeafKeys() {
 
         List<E> leafs = new ArrayList<>();
-        this.dfs(this, leafs);
+        this.findLeafKeys(this, leafs);
 
         return leafs;
     }
 
     @Override
     public List<E> getMiddleKeys() {
-        return null;
+
+        List<E> middleKeys = new ArrayList<>();
+
+        this.findMiddleNodes(this, middleKeys);
+
+        return middleKeys;
     }
 
     @Override
     public Tree<E> getDeepestLeftmostNode() {
-        return null;
+
+        List<E> leafs = new ArrayList<>();
+        findLeafKeys(this, leafs);
+
+        return new Tree<>(leafs.get(0));
     }
 
     @Override
@@ -102,13 +111,23 @@ public class Tree<E> implements AbstractTree<E> {
         return builder.toString();
     }
 
-    private void dfs(Tree<E> tree, List<E> order) {
+    private void findLeafKeys(Tree<E> tree, List<E> order) {
         for (Tree<E> child : tree.children) {
 
             if (child.children.size() == 0) {
                 order.add(child.key);
             }
-            this.dfs(child, order);
+            this.findLeafKeys(child, order);
+        }
+    }
+
+    private void findMiddleNodes(Tree<E> tree, List<E> middleKeys) {
+
+        for (Tree<E> child : tree.children) {
+            if (child.parent != null && child.children.size() > 0) {
+                middleKeys.add(child.key);
+            }
+            findMiddleNodes(child, middleKeys);
         }
     }
 }
