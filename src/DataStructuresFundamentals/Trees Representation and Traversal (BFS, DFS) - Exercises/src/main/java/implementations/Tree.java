@@ -42,37 +42,16 @@ public class Tree<E> implements AbstractTree<E> {
 
         traverseTreeWithRecurrence(builder, 0, this);
 
-
         return builder.toString().trim();
-
-    }
-
-    private void traverseTreeWithRecurrence(StringBuilder builder, int indent, Tree<E> tree) {
-
-        builder
-                .append(this.getPadding(indent))
-                .append(tree.getKey())
-                .append(System.lineSeparator());
-
-        for (Tree<E> child : tree.children) {
-            traverseTreeWithRecurrence(builder, indent + 2, child);
-        }
-    }
-
-    private String getPadding(int size) {
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0; i < size; i++) {
-            builder.append(" ");
-        }
-
-        return builder.toString();
     }
 
     @Override
     public List<E> getLeafKeys() {
 
-        return null;
+        List<E> leafs = new ArrayList<>();
+        this.dfs(this, leafs);
+
+        return leafs;
     }
 
     @Override
@@ -98,6 +77,39 @@ public class Tree<E> implements AbstractTree<E> {
     @Override
     public List<Tree<E>> subTreesWithGivenSum(int sum) {
         return null;
+    }
+
+
+    private void traverseTreeWithRecurrence(StringBuilder builder, int indent, Tree<E> tree) {
+
+        builder
+                .append(this.getPadding(indent))
+                .append(tree.getKey())
+                .append(System.lineSeparator());
+
+        for (Tree<E> child : tree.children) {
+            traverseTreeWithRecurrence(builder, indent + 2, child);
+        }
+    }
+
+    private String getPadding(int size) {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < size; i++) {
+            builder.append(" ");
+        }
+
+        return builder.toString();
+    }
+
+    private void dfs(Tree<E> tree, List<E> order) {
+        for (Tree<E> child : tree.children) {
+
+            if (child.children.size() == 0) {
+                order.add(child.key);
+            }
+            this.dfs(child, order);
+        }
     }
 }
 
