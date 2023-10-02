@@ -12,7 +12,7 @@ public class Tree<E> implements AbstractTree<E> {
 
     public Tree(E key) {
         this.key = key;
-        this.parent = null;
+        this.children = new ArrayList<>();
 //        this.children.addAll(Arrays.asList(children));
 //
 //        for (Tree<E> child : children) {

@@ -23,10 +23,16 @@ public class TreeFactory {
 
             this.addEdge(parentKey, childKey);
         }
-        return null;
+        return this.getRoot();
     }
 
     private Tree<Integer> getRoot() {
+
+        for (Tree<Integer> value : nodesByKeys.values()) {
+            if (value.getParent() == null) {
+                return value;
+            }
+        }
         return null;
     }
 
