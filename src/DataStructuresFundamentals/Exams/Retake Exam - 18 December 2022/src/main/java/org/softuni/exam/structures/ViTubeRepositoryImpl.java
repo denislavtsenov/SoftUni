@@ -11,9 +11,6 @@ import java.util.stream.Collectors;
 public class ViTubeRepositoryImpl implements ViTubeRepository {
 
     Map<String, User> users = new LinkedHashMap<>();
-    Map<String, Integer> userLikes = new LinkedHashMap<>();
-    Map<String, Integer> userViews = new LinkedHashMap<>();
-    Map<String, Integer> userDislikes = new LinkedHashMap<>();
     Map<String, User> passiveUsers = new LinkedHashMap<>();
     Map<String, Video> videos = new LinkedHashMap<>();
 
@@ -54,10 +51,6 @@ public class ViTubeRepositoryImpl implements ViTubeRepository {
 
         videos.get(video.getId()).setViews(video.getViews() + 1);
 
-        Integer currentViews = userViews.get(user.getId());
-        userViews.put(user.getId(), currentViews + 1);
-
-
     }
 
     @Override
@@ -69,8 +62,7 @@ public class ViTubeRepositoryImpl implements ViTubeRepository {
         passiveUsers.remove(user.getId());
         videos.get(video.getId()).setLikes(video.getLikes() + 1);
 
-        Integer currentLikes = userLikes.get(user.getId());
-        userLikes.put(user.getId(), currentLikes + 1);
+
     }
 
     @Override
@@ -81,9 +73,6 @@ public class ViTubeRepositoryImpl implements ViTubeRepository {
         }
         passiveUsers.remove(user.getId());
         videos.get(video.getId()).setDislikes(video.getDislikes() + 1);
-
-        Integer currentDislikes = userDislikes.get(user.getId());
-        userDislikes.put(user.getId(), currentDislikes + 1);
 
     }
 
@@ -104,12 +93,6 @@ public class ViTubeRepositoryImpl implements ViTubeRepository {
 
     @Override
     public Iterable<User> getUsersByActivityThenByName() {
-//        return users.values()
-//                .stream()
-//                .sorted(Comparator.comparing((User u) -> userViews.get(u.getId())).reversed()
-//                        .thenComparing((User u) -> userDislikes.get(u.getId())).reversed()
-//                        .thenComparing(User::getUsername))
-//                .collect(Collectors.toList());
 
         return null;
     }
