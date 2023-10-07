@@ -3,33 +3,36 @@ package org.softuni.exam.structures;
 import org.softuni.exam.entities.Actor;
 import org.softuni.exam.entities.Movie;
 
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MovieDatabaseImpl implements MovieDatabase {
 
     Map<String, Actor> actors = new LinkedHashMap<>();
     Map<String, Actor> newbieActors = new LinkedHashMap<>();
     Map<String, Movie> movies = new LinkedHashMap<>();
-    Map<String, Movie> moviesByActor = new LinkedHashMap<>();
+    Map<String, List<Movie>> moviesByActor = new LinkedHashMap<>();
 
     @Override
     public void addActor(Actor actor) {
         actors.put(actor.getId(), actor);
         newbieActors.put(actor.getId(), actor);
+        moviesByActor.put(actor.getId(), new ArrayList<>());
     }
 
     @Override
     public void addMovie(Actor actor, Movie movie) throws IllegalArgumentException {
-        if (!contains(actor)) {
+
+        if (!contains(actor) || !contains(movie)) {
             throw new IllegalArgumentException();
         }
 
-        newbieActors.remove(actor.getId());
+        moviesByActor.get(actor.getId()).add(movie);
+
         movies.put(movie.getId(), movie);
-        moviesByActor.put(actor.getId(), movie);
+
+        newbieActors.remove(actor.getId());
     }
 
     @Override
@@ -63,7 +66,21 @@ public class MovieDatabaseImpl implements MovieDatabase {
 
     @Override
     public Iterable<Actor> getActorsOrderedByMaxMovieBudgetThenByMoviesCount() {
-        return null;
+        return actors.values()
+                .stream()
+                .sorted((a1, a2) -> {
+                    List<Movie> firstBudget = moviesByActor.get(a1.getId()).stream().sorted(Comparator.comparing(Movie::getBudget).reversed()).collect(Collectors.toList());
+                    List<Movie> secondBudget = moviesByActor.get(a2.getId()).stream().sorted(Comparator.comparing(Movie::getBudget).reversed()).collect(Collectors.toList());
+
+                    return Double.compare(secondBudget.get(0).getBudget(), firstBudget.get(0).getBudget());
+                })
+                .sorted((a1, a2) -> {
+                    int firstSize = moviesByActor.get(a1.getId()).size();
+                    int secondSize = moviesByActor.get(a2.getId()).size();
+
+                    return Integer.compare(secondSize, firstSize);
+                })
+                .collect(Collectors.toList());
     }
 
     @Override
