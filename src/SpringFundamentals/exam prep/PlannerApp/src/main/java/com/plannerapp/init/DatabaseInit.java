@@ -1,6 +1,6 @@
 package com.plannerapp.init;
 
-import com.plannerapp.model.service.PriorityService;
+import com.plannerapp.service.PriorityService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

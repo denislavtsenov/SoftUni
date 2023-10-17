@@ -1,8 +1,8 @@
-package com.plannerapp.model.service.impl;
+package com.plannerapp.service.impl;
 
 import com.plannerapp.model.entity.PriorityEntity;
 import com.plannerapp.model.enums.PriorityNameEnum;
-import com.plannerapp.model.service.PriorityService;
+import com.plannerapp.service.PriorityService;
 import com.plannerapp.repo.PriorityRepository;
 import org.springframework.stereotype.Service;
 
