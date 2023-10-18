@@ -10,4 +10,6 @@ public interface UserService {
     void loginUser(Long id, String username);
 
     void logoutUser();
+
+    void registerUser(UserServiceModel userServiceModel);
 }

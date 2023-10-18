@@ -1,10 +1,8 @@
 package com.plannerapp.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,10 +19,11 @@ public class UserEntity extends BaseEntity {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<TaskEntity> assignedTasks;
 
     public UserEntity() {
+        this.assignedTasks = new HashSet<>();
     }
 
     public String getUsername() {

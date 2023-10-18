@@ -1,5 +1,6 @@
 package com.plannerapp.service.impl;
 
+import com.plannerapp.model.entity.UserEntity;
 import com.plannerapp.model.service.UserServiceModel;
 import com.plannerapp.repo.UserRepository;
 import com.plannerapp.service.UserService;
@@ -38,6 +39,14 @@ public class UserServiceImpl implements UserService {
     public void logoutUser() {
         currentUser.setId(null);
         currentUser.setUsername(null);
+    }
+
+    @Override
+    public void registerUser(UserServiceModel userServiceModel) {
+
+        UserEntity user = modelMapper.map(userServiceModel, UserEntity.class);
+
+        userRepository.save(user);
     }
 
 }

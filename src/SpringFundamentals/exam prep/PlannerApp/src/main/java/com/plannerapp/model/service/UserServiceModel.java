@@ -2,6 +2,7 @@ package com.plannerapp.model.service;
 
 import com.plannerapp.model.entity.TaskEntity;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class UserServiceModel {
@@ -12,6 +13,7 @@ public class UserServiceModel {
     private Set<TaskEntity> assignedTasks;
 
     public UserServiceModel() {
+        this.assignedTasks = new HashSet<>();
     }
 
     public Long getId() {

@@ -11,21 +11,26 @@
 </head>
 <body>
 <header th:fragment="nav">
-    <nav class="navbar navbar-expand-lg bg-nav rounded">
-        <a class="nav-link my-text-color active h5 " href="/">Planner App</a>
-        <a class="nav-link my-text-color active h5 " href="/">Add Task</a>
+    <nav class="navbar navbar-expand-lg bg-nav rounded" th:object="${@currentUser}">
+
+        <a class="nav-link my-text-color active h5 " th:if="${@currentUser.id != null}" th:href="@{/home}">Planner App</a>
+        <a class="nav-link my-text-color active h5 " th:if="${@currentUser.id == null}" th:href="@{/}">Planner App</a>
+        <a class="nav-link my-text-color active h5 " th:if="${@currentUser.id != null}" href="/tasks/add">Add Task</a>
+
 
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav row">
+                <th:block th:if="*{id == null}">
                 <li class="nav-item col-md-4">
-                    <a class="nav-link active h5 my-text-color" href="/users/login" >Login</a>
+                    <a class="nav-link active h5 my-text-color" href="/users/login">Login</a>
                 </li>
 
                 <li class="nav-item col-md-4">
                     <a class="nav-link my-text-color active h5 " href="/users/register" >Register</a>
                 </li>
+                </th:block>
 
-                <li class="nav-item col-md-4">
+                <li class="nav-item col-md-4" th:if="*{id != null}">
                     <a class="nav-link my-text-color active h5 " href="/users/logout">Logout</a>
                 </li>
             </ul>

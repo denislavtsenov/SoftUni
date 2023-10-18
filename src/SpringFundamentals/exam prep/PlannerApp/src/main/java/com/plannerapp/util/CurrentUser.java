@@ -1,5 +1,8 @@
 package com.plannerapp.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CurrentUser {
 
     private Long id;
@@ -23,4 +26,9 @@ public class CurrentUser {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public boolean isLogged() {
+        return this.id != null;
+    }
+
 }

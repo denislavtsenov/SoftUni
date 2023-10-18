@@ -1,9 +1,10 @@
 package com.plannerapp.controller;
 
 import com.plannerapp.model.binding.UserLoginBindingModel;
-import com.plannerapp.model.entity.UserEntity;
+import com.plannerapp.model.binding.UserRegisterBindingModel;
 import com.plannerapp.model.service.UserServiceModel;
 import com.plannerapp.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,9 +21,11 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
 
     @ModelAttribute
@@ -30,9 +33,14 @@ public class UserController {
         return new UserLoginBindingModel();
     }
 
+    @ModelAttribute
+    public UserRegisterBindingModel userRegisterBindingModel() {
+        return new UserRegisterBindingModel();
+    }
+
     @GetMapping("/login")
     public String login(Model model) {
-        model.addAttribute("isFound", true);
+        model.addAttribute("isExists", true);
 
         return "login";
     }
@@ -54,7 +62,7 @@ public class UserController {
 
         if (user == null) {
             redirectAttributes
-                    .addFlashAttribute("isFound", false)
+                    .addFlashAttribute("isExists", false)
                     .addFlashAttribute("userLoginBindingModel", userLoginBindingModel)
                     .addFlashAttribute("org.springframework.validation.BindingResult.userLoginBindingModel", bindingResult);
 
@@ -63,7 +71,7 @@ public class UserController {
 
         userService.loginUser(user.getId(), user.getUsername());
 
-        return "redirect:/";
+        return "home";
     }
 
     @GetMapping("/register")
@@ -72,12 +80,33 @@ public class UserController {
     }
 
 
+    @PostMapping("/register")
+    public String registerConfirm(@Valid UserRegisterBindingModel userRegisterBindingModel,
+                                  BindingResult bindingResult,
+                                  RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors() || !userRegisterBindingModel.getPassword()
+                .equals(userRegisterBindingModel.getConfirmPassword())) {
+            redirectAttributes
+                    .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
+
+            return "redirect:register";
+        }
+
+        userService.registerUser(modelMapper.map(
+                userRegisterBindingModel, UserServiceModel.class
+        ));
+
+        return "redirect:login";
+    }
+
     @GetMapping("/logout")
     public String logout() {
 
         userService.logoutUser();
 
-        return "/index";
+        return "redirect:/";
     }
 
 }
