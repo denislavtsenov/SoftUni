@@ -40,7 +40,10 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        model.addAttribute("isExists", true);
+
+        if (!model.containsAttribute("isExists")) {
+            model.addAttribute("isExists", true);
+        }
 
         return "login";
     }
@@ -85,8 +88,10 @@ public class UserController {
                                   BindingResult bindingResult,
                                   RedirectAttributes redirectAttributes) {
 
-        if (bindingResult.hasErrors() || !userRegisterBindingModel.getPassword()
-                .equals(userRegisterBindingModel.getConfirmPassword())) {
+        boolean samePasswords = userRegisterBindingModel.getPassword()
+                .equals(userRegisterBindingModel.getConfirmPassword());
+
+        if (bindingResult.hasErrors() || !samePasswords) {
             redirectAttributes
                     .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
                     .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
