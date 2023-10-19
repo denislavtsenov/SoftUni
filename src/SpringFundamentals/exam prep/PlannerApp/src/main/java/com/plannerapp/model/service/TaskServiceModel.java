@@ -1,7 +1,9 @@
 package com.plannerapp.model.service;
 
 import com.plannerapp.model.entity.PriorityEntity;
+import com.plannerapp.model.entity.TaskEntity;
 import com.plannerapp.model.entity.UserEntity;
+import com.plannerapp.model.enums.PriorityNameEnum;
 
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
@@ -11,7 +13,7 @@ public class TaskServiceModel {
     private Long id;
     private String description;
     private LocalDate dueDate;
-    private PriorityEntity priority;
+    private PriorityNameEnum priority;
     private UserEntity user;
 
     public TaskServiceModel() {
@@ -41,11 +43,11 @@ public class TaskServiceModel {
         this.dueDate = dueDate;
     }
 
-    public PriorityEntity getPriority() {
+    public PriorityNameEnum getPriority() {
         return priority;
     }
 
-    public void setPriority(PriorityEntity priority) {
+    public void setPriority(PriorityNameEnum priority) {
         this.priority = priority;
     }
 
@@ -55,5 +57,17 @@ public class TaskServiceModel {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public static TaskServiceModel createFromTask(TaskEntity task) {
+
+        TaskServiceModel taskServiceModel = new TaskServiceModel();
+
+        taskServiceModel.setId(task.getId());
+        taskServiceModel.setDescription(task.getDescription());
+        taskServiceModel.setPriority(task.getPriority().getPriorityName());
+        taskServiceModel.setDueDate(task.getDueDate());
+
+        return taskServiceModel;
     }
 }

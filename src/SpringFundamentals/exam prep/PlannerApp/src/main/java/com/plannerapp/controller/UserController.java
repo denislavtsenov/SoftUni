@@ -74,7 +74,7 @@ public class UserController {
 
         userService.loginUser(user.getId(), user.getUsername());
 
-        return "home";
+        return "/home";
     }
 
     @GetMapping("/register")

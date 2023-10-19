@@ -2,10 +2,7 @@ package com.plannerapp.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -17,17 +14,16 @@ public class TaskEntity extends BaseEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "due_date", nullable = false)
     @Future
-    @DateTimeFormat(pattern = "d.M.yyyy")
+    @Column(name = "due_date", nullable = false)
     private LocalDate dueDate;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private PriorityEntity priority;
 
     @ManyToOne
-    private UserEntity user;
+    private UserEntity assignee;
 
     public TaskEntity() {
     }
@@ -48,12 +44,12 @@ public class TaskEntity extends BaseEntity {
         this.dueDate = dueDate;
     }
 
-    public UserEntity getUser() {
-        return user;
+    public UserEntity getAssignee() {
+        return assignee;
     }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
+    public void setAssignee(UserEntity assignee) {
+        this.assignee = assignee;
     }
 
     public PriorityEntity getPriority() {

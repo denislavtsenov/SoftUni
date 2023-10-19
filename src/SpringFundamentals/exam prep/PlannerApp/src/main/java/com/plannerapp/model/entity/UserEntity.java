@@ -19,7 +19,7 @@ public class UserEntity extends BaseEntity {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "assignee", fetch = FetchType.EAGER)
     private Set<TaskEntity> assignedTasks;
 
     public UserEntity() {
