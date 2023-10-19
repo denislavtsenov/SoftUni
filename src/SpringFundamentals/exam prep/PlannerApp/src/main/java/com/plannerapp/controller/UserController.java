@@ -4,6 +4,7 @@ import com.plannerapp.model.binding.UserLoginBindingModel;
 import com.plannerapp.model.binding.UserRegisterBindingModel;
 import com.plannerapp.model.service.UserServiceModel;
 import com.plannerapp.service.UserService;
+import com.plannerapp.util.CurrentUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +23,12 @@ public class UserController {
 
     private final UserService userService;
     private final ModelMapper modelMapper;
+    private final CurrentUser currentUser;
 
-    public UserController(UserService userService, ModelMapper modelMapper) {
+    public UserController(UserService userService, ModelMapper modelMapper, CurrentUser currentUser) {
         this.userService = userService;
         this.modelMapper = modelMapper;
+        this.currentUser = currentUser;
     }
 
     @ModelAttribute
@@ -40,6 +43,10 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(Model model) {
+
+        if (currentUser.isLogged()) {
+            return "redirect:/home";
+        }
 
         if (!model.containsAttribute("isExists")) {
             model.addAttribute("isExists", true);
@@ -74,11 +81,16 @@ public class UserController {
 
         userService.loginUser(user.getId(), user.getUsername());
 
-        return "/home";
+        return "redirect:/home";
     }
 
     @GetMapping("/register")
     public String register() {
+
+        if (currentUser.isLogged()) {
+            return "redirect:/home";
+        }
+
         return "register";
     }
 

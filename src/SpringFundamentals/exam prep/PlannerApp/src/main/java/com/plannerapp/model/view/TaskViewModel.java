@@ -3,7 +3,7 @@ package com.plannerapp.model.view;
 import com.plannerapp.model.entity.TaskEntity;
 import com.plannerapp.model.enums.PriorityNameEnum;
 
-public class TaskDTO {
+public class TaskViewModel {
     private Long id;
 
     private String description;
@@ -44,8 +44,8 @@ public class TaskDTO {
         this.priority = priority;
     }
 
-    public static TaskDTO createFromTask(TaskEntity task) {
-        TaskDTO taskDTO = new TaskDTO();
+    public static TaskViewModel createFromTask(TaskEntity task) {
+        TaskViewModel taskDTO = new TaskViewModel();
 
         taskDTO.setId(task.getId());
         taskDTO.setDescription(task.getDescription());

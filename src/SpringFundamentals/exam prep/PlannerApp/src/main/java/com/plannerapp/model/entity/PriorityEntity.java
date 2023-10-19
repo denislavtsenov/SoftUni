@@ -3,6 +3,7 @@ package com.plannerapp.model.entity;
 import com.plannerapp.model.enums.PriorityNameEnum;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity

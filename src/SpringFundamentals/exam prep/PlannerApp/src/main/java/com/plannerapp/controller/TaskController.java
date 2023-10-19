@@ -56,7 +56,7 @@ public class TaskController {
                 taskBindingModel, TaskServiceModel.class
         ));
 
-        return "/home";
+        return "redirect:/home";
 
     }
 

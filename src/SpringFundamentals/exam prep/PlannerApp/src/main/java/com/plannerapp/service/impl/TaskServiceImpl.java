@@ -4,8 +4,6 @@ import com.plannerapp.model.entity.PriorityEntity;
 import com.plannerapp.model.entity.TaskEntity;
 import com.plannerapp.model.entity.UserEntity;
 import com.plannerapp.model.service.TaskServiceModel;
-import com.plannerapp.model.view.TaskDTO;
-import com.plannerapp.model.view.TaskHomeViewModel;
 import com.plannerapp.repo.PriorityRepository;
 import com.plannerapp.repo.TaskRepository;
 import com.plannerapp.repo.UserRepository;
@@ -17,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -78,19 +75,15 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public TaskHomeViewModel getHomeAndViewData(String username) {
+    public List<TaskEntity> getAllTasks() {
+        List<TaskEntity> allByAssigneeIdIsNull = taskRepository
+                .getAllByAssigneeIsNull();
 
-        UserEntity user = userRepository.findByUsername(username);
+        return allByAssigneeIdIsNull;
+    }
 
-        List<TaskDTO> assignedTasks =
-                taskRepository.findByAssignee(user).stream()
-                        .map(TaskDTO::createFromTask)
-                        .collect(Collectors.toList());
-
-        List<TaskDTO> availableTasks = taskRepository.getAllAvailable().stream()
-                .map(TaskDTO::createFromTask)
-                .collect(Collectors.toList());
-
-        return new TaskHomeViewModel(assignedTasks, availableTasks);
+    @Override
+    public List<TaskEntity> getAssignedTasks() {
+        return taskRepository.getAllByAssigneeIsNotNull();
     }
 }

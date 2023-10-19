@@ -1,11 +1,9 @@
 package com.plannerapp.model.service;
 
-import com.plannerapp.model.entity.PriorityEntity;
 import com.plannerapp.model.entity.TaskEntity;
 import com.plannerapp.model.entity.UserEntity;
 import com.plannerapp.model.enums.PriorityNameEnum;
 
-import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 public class TaskServiceModel {

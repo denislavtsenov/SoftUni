@@ -14,6 +14,8 @@ public interface TaskRepository extends JpaRepository<TaskEntity, Long> {
 
     List<TaskEntity> findByAssignee(UserEntity user);
 
-    @Query("SELECT t FROM TaskEntity t WHERE t.assignee.id IS null")
-    List<TaskEntity> getAllAvailable();
+    List<TaskEntity> getAllByAssigneeIsNull();
+
+
+    List<TaskEntity> getAllByAssigneeIsNotNull();
 }

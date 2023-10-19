@@ -1,11 +1,10 @@
 package com.plannerapp.controller;
 
-import com.plannerapp.model.view.TaskHomeViewModel;
 import com.plannerapp.service.TaskService;
 import com.plannerapp.util.CurrentUser;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -17,25 +16,28 @@ public class HomeController {
         this.taskService = taskService;
     }
 
-    @GetMapping("/")
-    public ModelAndView index() {
+    @GetMapping("/index")
+    public String index() {
 
-        if (currentUser.isLogged()) {
-            return new ModelAndView("redirect:/home");
+        if (!currentUser.isLogged()) {
+            return "index";
         }
 
-        return new ModelAndView("index");
+        return "redirect:home";
     }
 
     @GetMapping("/home")
-    public ModelAndView home() {
+    public String home(Model model) {
 
         if (!currentUser.isLogged()) {
-            return new ModelAndView("redirect:/");
+            return "redirect:index";
         }
 
-        TaskHomeViewModel viewModel = taskService.getHomeAndViewData(currentUser.getUsername());
+        model.addAttribute("allTasks", taskService.getAllTasks());
+        model.addAttribute("assignedTasks", taskService.getAssignedTasks());
+        model.addAttribute("allUnassignedTasksSize", taskService.getAllTasks().size());
 
-        return new ModelAndView("home", "tasks", viewModel);
+        return "home";
     }
+
 }

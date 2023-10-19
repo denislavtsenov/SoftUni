@@ -11,13 +11,13 @@
             <h3 class=" bg-gray text-dark  mb-0 mt-2">Assigned to me</h3>
             <h6 class=" bg-gray text-dark  mb-0 mt-0" th:text="'Username: ' + ${@currentUser.username}">Username: {loggedUsername}</h6>
             <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
-                <ul th:each="assignedTask : ${tasks.assignedTasks}" class="list-group list-group-horizontal text-dark">
+                <ul th:each="assignedTask : ${assignedTasks}" th:object="${assignedTask}" class="list-group list-group-horizontal text-dark">
                     <li class="list-group-item bg-warning">
                         <table>
                             <tr>
                                 <td scope="row" style="width: 5%"><img class="mr-2 " src="/img/pin.png" alt="Pin" width="35px" height="35px"></td>
-                                <td style="width: 15%" th:text="*{assignedTask.priority}">{priority}</td>
-                                <td style="width: 40%" th:text="*{assignedTask.dueDate}">{dueDate}</td>
+                                <td style="width: 15%" th:text="*{priority.priorityName.name()}">{priority}</td>
+                                <td style="width: 40%" th:text="*{dueDate}">{dueDate}</td>
                                 <td>
                                     <form th:method="POST"
                                           th:action="@{/tasks/remove/{id}(id=${assignedTask.id})}">
@@ -38,7 +38,7 @@
                         </table>
                     </li>
                     <li class="list-group-item list-group-item-warning text-dark">
-                        <a>{description}</a>
+                        <a th:text="*{description}">{description}</a>
                     </li>
                 </ul>
             </div>
@@ -46,15 +46,15 @@
 
         <div class="col-5">
             <h3 class="mySticky bg-gray text-dark  mb-0 mt-2">All Available Tasks</h3>
-            <h6 class="mySticky bg-gray text-dark  mb-0 mt-0">{totalUnassignedTasks} Tasks</h6>
+            <h6 class="mySticky bg-gray text-dark  mb-0 mt-0" th:text="${allUnassignedTasksSize} + ' Tasks'">{totalUnassignedTasks} Tasks</h6>
             <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
-                    <ul th:each="availableTask : ${tasks.availableTasks}" th:object="${availableTask}" class="list-group list-group-horizontal text-dark">
+                    <ul th:each="task : ${allTasks}" th:object="${task}" class="list-group list-group-horizontal text-dark">
                         <li class="list-group-item bg-warning">
                             <table>
                                 <tr>
                                     <td style="width: 5%"><img class="mr-2 " src="/img/pin.png" alt="Pin" width="35px" height="35px"></td>
-                                    <td style="width: 15%" th:text="*{priority}"><a>{priority}</a></td>
-                                    <td><a th:text="|'Due Date: ' *{dueDate}|">Due Date: {dueDate}</a></td>
+                                    <td style="width: 15%" th:text="*{priority.priorityName.name()}"><a>{priority}</a></td>
+                                    <td><a th:text="|Due Date:  *{dueDate}|">Due Date: {dueDate}</a></td>
                                     <td>
                                         <form th:method="POST"
                                               th:action="@{/tasks/assign/{id}(id=*{id})}">
@@ -67,7 +67,7 @@
                             </table>
                         </li>
                         <li class="list-group-item list-group-item-warning text-dark">
-                            <a>{description}</a>
+                            <a th:text="*{description}">{description}</a>
                         </li>
                     </ul>
             </div>
