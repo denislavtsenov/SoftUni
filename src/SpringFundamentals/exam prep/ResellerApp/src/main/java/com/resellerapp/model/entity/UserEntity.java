@@ -1,9 +1,6 @@
 package com.resellerapp.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Set;
 
@@ -17,14 +14,14 @@ public class UserEntity extends BaseEntity{
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Email
     @Column(name = "email", nullable = false, unique = true)
+    @Email
     private String email;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<OfferEntity> offers;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<OfferEntity> boughtOffers;
 
     public UserEntity() {

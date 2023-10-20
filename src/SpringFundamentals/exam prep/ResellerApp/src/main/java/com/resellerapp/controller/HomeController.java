@@ -17,17 +17,17 @@ public class HomeController {
     public String index() {
 
         if (currentUser.isLogged()) {
-            return "redirect:/home";
+            return "redirect:home";
         }
 
         return "index";
     }
 
-    @GetMapping("home")
+    @GetMapping("/home")
     public String home() {
 
         if (!currentUser.isLogged()) {
-            return "redirect:/index";
+            return "redirect:index";
         }
 
         return "home";

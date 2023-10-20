@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -28,6 +29,16 @@ public class UserController {
         this.currentUser = currentUser;
         this.userService = userService;
         this.modelMapper = modelMapper;
+    }
+
+    @ModelAttribute
+    public UserRegisterBindingModel userRegisterBindingModel() {
+        return new UserRegisterBindingModel();
+    }
+
+    @ModelAttribute
+    public UserLoginBindingModel userLoginBindingModel() {
+        return new UserLoginBindingModel();
     }
 
     @GetMapping("/login")
@@ -65,7 +76,7 @@ public class UserController {
                     .addFlashAttribute("userLoginBindingModel", userLoginBindingModel)
                     .addFlashAttribute("org.springframework.validation.BindingResult.userLoginBindingModel", bindingResult);
 
-            return "redirect:/login";
+            return "redirect:login";
         }
 
         userService.loginUser(user.getId(), user.getUsername());
@@ -109,11 +120,11 @@ public class UserController {
     public String logout() {
 
         if (!currentUser.isLogged()) {
-            return "redirect:/index";
+            return "redirect:/";
         }
 
         userService.logoutUser();
 
-        return "redirect:/index";
+        return "redirect:/";
     }
 }

@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface ConditionRepository extends JpaRepository<ConditionEntity, Long> {
 
 
+    ConditionEntity findByConditionName(ConditionEntity condition);
 }
