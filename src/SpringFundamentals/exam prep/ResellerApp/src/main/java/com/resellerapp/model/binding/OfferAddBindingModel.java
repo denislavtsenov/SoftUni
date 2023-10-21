@@ -18,7 +18,7 @@ public class OfferAddBindingModel {
     private BigDecimal price;
 
     @NotNull(message = "You must select condition!")
-    private ConditionNameEnum condition;
+    private ConditionNameEnum conditionName;
 
     public OfferAddBindingModel() {
     }
@@ -39,11 +39,11 @@ public class OfferAddBindingModel {
         this.price = price;
     }
 
-    public ConditionNameEnum getCondition() {
-        return condition;
+    public ConditionNameEnum getConditionName() {
+        return conditionName;
     }
 
-    public void setCondition(ConditionNameEnum condition) {
-        this.condition = condition;
+    public void setConditionName(ConditionNameEnum conditionName) {
+        this.conditionName = conditionName;
     }
 }

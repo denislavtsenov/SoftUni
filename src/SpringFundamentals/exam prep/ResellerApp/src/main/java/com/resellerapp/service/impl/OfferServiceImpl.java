@@ -25,7 +25,7 @@ public class OfferServiceImpl implements OfferService {
     @Override
     public void addOffer(OfferServiceModel offerServiceModel) {
 
-        ConditionEntity condition = conditionRepository.findByConditionName(offerServiceModel.getCondition());
+        ConditionEntity condition = conditionRepository.findByConditionName(offerServiceModel.getConditionName());
 
         if (condition != null) {
             offerRepository.save(modelMapper.map(

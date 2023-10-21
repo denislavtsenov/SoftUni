@@ -28,7 +28,7 @@ public class OfferController {
     }
 
     @GetMapping("/offer/add")
-    public String addOffer() {
+    public String add() {
 
         if (!currentUser.isLogged()) {
             return "redirect:/";
@@ -46,7 +46,7 @@ public class OfferController {
                     .addFlashAttribute("offerAddBindingModel", offerAddBindingModel)
                     .addFlashAttribute("org.springframework.validation.BindingResult.offerAddBindingModel", bindingResult);
 
-            return "redirect:addOffer";
+            return "redirect:add";
         }
 
         offerService.addOffer(modelMapper.map(

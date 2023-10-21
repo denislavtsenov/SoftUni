@@ -1,6 +1,7 @@
 package com.resellerapp.model.service;
 
 import com.resellerapp.model.entity.ConditionEntity;
+import com.resellerapp.model.enums.ConditionNameEnum;
 
 import java.math.BigDecimal;
 
@@ -9,7 +10,7 @@ public class OfferServiceModel {
     private Long id;
     private String description;
     private BigDecimal price;
-    private ConditionEntity condition;
+    private ConditionNameEnum conditionName;
 
     public OfferServiceModel() {
     }
@@ -38,11 +39,11 @@ public class OfferServiceModel {
         this.price = price;
     }
 
-    public ConditionEntity getCondition() {
-        return condition;
+    public ConditionNameEnum getConditionName() {
+        return conditionName;
     }
 
-    public void setCondition(ConditionEntity condition) {
-        this.condition = condition;
+    public void setConditionName(ConditionNameEnum conditionName) {
+        this.conditionName = conditionName;
     }
 }

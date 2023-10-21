@@ -1,6 +1,7 @@
 package com.resellerapp.repository;
 
 import com.resellerapp.model.entity.ConditionEntity;
+import com.resellerapp.model.enums.ConditionNameEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface ConditionRepository extends JpaRepository<ConditionEntity, Long> {
 
 
-    ConditionEntity findByConditionName(ConditionEntity condition);
+    ConditionEntity findByConditionName(ConditionNameEnum conditionName);
 }
