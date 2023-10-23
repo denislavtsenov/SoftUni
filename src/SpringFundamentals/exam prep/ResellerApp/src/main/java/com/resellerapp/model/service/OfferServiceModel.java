@@ -10,7 +10,7 @@ public class OfferServiceModel {
     private Long id;
     private String description;
     private BigDecimal price;
-    private ConditionNameEnum conditionName;
+    private ConditionNameEnum condition;
 
     public OfferServiceModel() {
     }
@@ -39,11 +39,11 @@ public class OfferServiceModel {
         this.price = price;
     }
 
-    public ConditionNameEnum getConditionName() {
-        return conditionName;
+    public ConditionNameEnum getCondition() {
+        return condition;
     }
 
-    public void setConditionName(ConditionNameEnum conditionName) {
-        this.conditionName = conditionName;
+    public void setCondition(ConditionNameEnum condition) {
+        this.condition = condition;
     }
 }
